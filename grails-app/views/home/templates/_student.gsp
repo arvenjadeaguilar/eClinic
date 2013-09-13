@@ -17,11 +17,14 @@
 	<h1>Student</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
-	<table>
+	<g:form name="add_Student" action="addStudent">
+		<table>
 		<tr>
-			<td>First Name : </br><input type="text" placeholder="ex. Arven Jade"/></td>
+			<td>First Name : </br><input type="text" name="fname" placeholder="ex. Arven Jade"/></td>
 			<td>Last Name : </br><input type="text" placeholder="ex Aguilar"/></td>
-			<td>Middle Name : </br><input type="text" placeholder="ex. Buenavista"/></td> </td>
+			<td>
+			Middle Name : </br><input type="text" placeholder="ex. Buenavista"/>
+			</td> 
 		</tr>
 		
 		<tr>
@@ -33,15 +36,17 @@
 	
 		<tr>
 			<td>Gender
-			<br/>
-			<label class="checkbox inline">
-					<input type="checkbox" id="inlineCheckbox1" value="male"> Male
-			</label>
-			<label class="checkbox inline">
-					<input type="checkbox" id="inlineCheckbox2" value="female"> Female
-			</label>
+				<br/>
+				<label class="checkbox inline">
+					<input type="checkbox" id="inlineCheckbox1" value="male"/> Male
+				</label>
+				
+				<label class="checkbox inline">
+					<input type="checkbox" id="inlineCheckbox2" value="female"/> Female
+				</label>
 			
 			</td>
+			
 			<td>Birthday <br/>
 				<select  style="width:100px">
 					<g:render template="templates/month"/>	
@@ -65,7 +70,9 @@
 			<td>Age <br/> 
 				<select style="width:70px">
 				<g:render template="templates/number"/>
-				</select></td>
+				</select>
+				
+			</td>
 		</tr>
 		
 		<tr>
@@ -101,11 +108,19 @@
 		</tr>
 		
 		<tr>
-			<td>Mothers Name </br><input type="text" placeholder="ex. Bienvenida Buenavista"/></td>
-			<td>Age <br/>
+			<td>Mothers Name </br>
+			
+			<input type="text" placeholder="ex. Bienvenida Buenavista"/>
+			
+			</td>
+			
+			<td>
+			Age <br/>
 				<select style="width:70px">
 				<g:render template="templates/number"/>
-				</select></td>
+				</select>
+				
+			</td>
 			<td>Occupation </br><input type="text" placeholder="ex. Accountant"/></td>
 		</tr>
 	
@@ -125,12 +140,14 @@
 		</tr>
 		
 		<tr>
-		<td><button class="btn btn-large btn-primary" type="button">Add Student</button> </td>
+		<td><input type="submit" class="btn btn-primary btn-large" value="Add Student"> </td>
 		</tr>
 	
 	
 		
 	
 		</table>	
-		</div>
+	</g:form>
+	
+	</div>
 </div>			

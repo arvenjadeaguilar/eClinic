@@ -29,6 +29,12 @@
 		</div>
 		</g:remoteLink>
 		
+		<g:remoteLink action="profile" id="" update="page-body">
+		<div id="status">
+		Graph
+		</div>
+		</g:remoteLink>
+		
 		</div>	
 
 		
