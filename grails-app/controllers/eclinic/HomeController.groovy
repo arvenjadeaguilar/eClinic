@@ -1,10 +1,15 @@
 package eclinic
 
+import org.springframework.dao.DataIntegrityViolationException
 import groovy.sql.Sql
+
 class HomeController {
+
+	def dataSource
 	 
-	def db = [url:'jdbc:postgresql://localhost:5432/eClinic', user:'postgres', password:'password', driver:'org.postgresql.Driver']
-	 def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
+	//def db = [url:'jdbc:postgresql://localhost:5432/eClinic', user:'postgres', password:'postgres', driver:'org.postgresql.Driver']
+	//def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
+
     def index() { }
 
 	
@@ -25,12 +30,13 @@ class HomeController {
 	
 	
 	def addStudent(){
+		def db = new Sql(dataSource)
 		
 		println "parameters are" + params;
 		println "name: " + params.fname;
 		
 		def firstName = params.fname;
-		sql.execute("insert into clinicdb(fname) values('${firstName}')");
+		db.execute("insert into clinicdb(fname) values('${firstName}')");
 		
 	}
 }
