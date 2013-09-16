@@ -31,12 +31,14 @@ class HomeController {
 	
 	def addStudent(){
 		def db = new Sql(dataSource)
+	
+		
 		
 		println "parameters are" + params;
-		println "name: " + params.fname;
-		
+		println "name: " + params.fname +" "+params.mname+" "+params.lname+""+params.sex+""+params.month;
+	
 		def firstName = params.fname;
-		db.execute("insert into clinicdb(fname) values('${firstName}')");
+		db.execute("insert into clinicdb(fname,lname,mname,college) values('${firstName}')");
 		
 	}
 }

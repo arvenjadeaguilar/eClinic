@@ -21,16 +21,16 @@
 		<table>
 		<tr>
 			<td>First Name : </br><input type="text" name="fname" placeholder="ex. Arven Jade"/></td>
-			<td>Last Name : </br><input type="text" placeholder="ex Aguilar"/></td>
+			<td>Last Name : </br><input type="text" name="lname" placeholder="ex Aguilar"/></td>
 			<td>
-			Middle Name : </br><input type="text" placeholder="ex. Buenavista"/>
+			Middle Name : </br><input type="text" name ="mname" placeholder="ex. Buenavista"/>
 			</td> 
 		</tr>
 		
 		<tr>
-			<td>College : </br><input type="text" placeholder="ex. MSU-IIT"/></td>
-			<td>Course : </br><input type="text" placeholder="ex. Computer Science"/></td>
-			<td>ID No. : </br><input type="text" placeholder="ex. 2009-3644"/></td>
+			<td>College : </br><input type="text" name="college" placeholder="ex. MSU-IIT"/></td>
+			<td>Course : </br><input type="text" name="course" placeholder="ex. Computer Science"/></td>
+			<td>ID No. : </br><input type="text" name = "idno" placeholder="ex. 2009-3644"/></td>
 		
 		</tr>
 	
@@ -38,37 +38,37 @@
 			<td>Gender
 				<br/>
 				<label class="checkbox inline">
-					<input type="checkbox" id="inlineCheckbox1" value="male"/> Male
+					<input type="checkbox" name="sex" id="inlineCheckbox1" value="male"/> Male
 				</label>
 				
 				<label class="checkbox inline">
-					<input type="checkbox" id="inlineCheckbox2" value="female"/> Female
+					<input type="checkbox" name="sex" id="inlineCheckbox2" value="female"/> Female
 				</label>
 			
 			</td>
 			
 			<td>Birthday <br/>
-				<select  style="width:100px">
+				<select name="month" style="width:100px">
 					<g:render template="templates/month"/>	
 				</select>
 				-
-				<select id="date" style="width:70px">
+				<select name="date" id="date" style="width:70px">
 						<g:render template="templates/date"/>			
 				</select>
 			
 				-
-				<select style="width:70px">
+				<select name="year1" style="width:70px">
 					<g:render template="templates/year"/>
 					
 				</select>
 				
-				<select style="width:70px">
+				<select name="year2" style="width:70px">
 					<g:render template="templates/number"/>
 					
 				</select>
 			</td>
 			<td>Age <br/> 
-				<select style="width:70px">
+				<select name ="age" style="width:70px">
 				<g:render template="templates/number"/>
 				</select>
 				
@@ -76,21 +76,21 @@
 		</tr>
 		
 		<tr>
-			<td>City Adress </br><input type="text" placeholder="ex. Iligan City"/></td>
-			<td>Province </br><input type="text" placeholder="ex. Iligan"/></td>
-			<td>Postal Code </br><input type="text" placeholder="ex. 9200"/></td>
+			<td>City Adress </br><input name="address" type="text" placeholder="ex. Iligan City"/></td>
+			<td>Province </br><input name ="prvince" type="text" placeholder="ex. Iligan"/></td>
+			<td>Postal Code </br><input name="Postal" type="text" placeholder="ex. 9200"/></td>
 		</tr>
 		<tr>
 			<td>Height
-				</br><input type="number" placeholder="ex. 5'6 "/> ft
+				</br><input name="height" type="number" placeholder="ex. 5'6 "/> ft
 			
 			</td>
 			<td>Weight
-				</br><input type="number" placeholder="ex. 60 "/> kg
+				</br><input name="weight" type="number" placeholder="ex. 60 "/> kg
 			</td>
 			<td>BloodType
 				<br/>
-				<select>
+				<select name="bloodtype">
 					<g:render template="templates/bloodType"/>	
 				</select>
 			
@@ -98,41 +98,41 @@
 		</tr>
 		
 		<tr>
-			<td>Fathers Name </br><input type="text" placeholder="ex. Rogelio Aguilar"/></td>
+			<td>Fathers Name </br><input name="fathersname" type="text" placeholder="ex. Rogelio Aguilar"/></td>
 			<td>Age<br/> 
-				<select style="width:70px">
+				<select name="fage"style="width:70px">
 				<g:render template="templates/number"/>
 				</select>
 			</td>
-			<td>Occupation </br><input type="text" placeholder="ex. Driver"/></td>
+			<td>Occupation </br><input name="foccupation" type="text" placeholder="ex. Driver"/></td>
 		</tr>
 		
 		<tr>
 			<td>Mothers Name </br>
 			
-			<input type="text" placeholder="ex. Bienvenida Buenavista"/>
+			<input name="mname" type="text" placeholder="ex. Bienvenida Buenavista"/>
 			
 			</td>
 			
 			<td>
 			Age <br/>
-				<select style="width:70px">
+				<select name="mage" style="width:70px">
 				<g:render template="templates/number"/>
 				</select>
 				
 			</td>
-			<td>Occupation </br><input type="text" placeholder="ex. Accountant"/></td>
+			<td>Occupation </br><input name="foccupation" type="text" placeholder="ex. Accountant"/></td>
 		</tr>
 	
 		<tr>
 			<td>Brothers Name<br/>
-				<textarea rows="4" cols="50">
+				<textarea name="brother" rows="4" cols="50">
 				
 				</textarea>
 				
 				
 			</td>
-			<td>Sisters Name <br/>
+			<td>Sisters Name name="sister" <br/>
 				<textarea rows="4" cols="50">
 				
 				</textarea>
