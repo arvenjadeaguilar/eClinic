@@ -17,7 +17,7 @@
 		</div>
 		</g:remoteLink>
 		
-		<g:remoteLink action="profile" id="" update="page-body">
+		<g:remoteLink action="showProfile" id="" update="page-body">
 		<div id="status">
 		Profile
 		</div>
@@ -29,7 +29,7 @@
 		</div>
 		</g:remoteLink>
 		
-		<g:remoteLink action="profile" id="" update="page-body">
+		<g:remoteLink action="graph" id="" update="page-body">
 		<div id="status">
 		Graph
 		</div>

@@ -28,7 +28,10 @@ class HomeController {
 		render(template:"templates/inventory")
 	}
 	
+	def graph(){
 	
+		render(template:"templates/graph")
+	}
 	def addStudent(){
 		def db = new Sql(dataSource)
 	

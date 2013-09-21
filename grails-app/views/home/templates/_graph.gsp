@@ -14,21 +14,9 @@
 			
 			
 <div id="Student-Profile">
-	<h1>Student Information</h1>
+	<h1>Graph</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
-		
-		First Name : 
-		<br>
-		Last Name :
-		<br>
-		ID Number :
-		<br>
-		Course :
-		<br>
-		College :
-		<br>
-		Gender :
 		
 	
 	</div>
