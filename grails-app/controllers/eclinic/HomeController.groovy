@@ -44,4 +44,17 @@ class HomeController {
 		db.execute("insert into clinicdb(fname,lname,mname,college) values('${firstName}')");
 		
 	}
+	
+	def editPrescription() {
+		def db = new Sql(dataSource)
+		
+		def diagnosisId = params.id
+		def diagnosis = params.diagnosis
+		def prescription = params.prescription
+		
+		db.execute("""UPDATE medical_history SET diagnosis='${diagnosis}', prescription='${prescription}' where id='${diagnosisId}'""")
+		render(template:"templates/profile")
+		
+	}
+	
 }
