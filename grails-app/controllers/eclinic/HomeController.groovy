@@ -32,18 +32,19 @@ class HomeController {
 	
 		render(template:"templates/graph")
 	}
-	def addStudent(){
-		def db = new Sql(dataSource)
+	
+	//def addStudent(){
+		//def db = new Sql(dataSource)
 	
 		
 		
-		println "parameters are" + params;
-		println "name: " + params.fname +" "+params.mname+" "+params.lname+""+params.sex+""+params.month;
+		//println "parameters are" + params;
+		//println "name: " + params.fname +" "+params.mname+" "+params.lname+""+params.sex+""+params.month;
 	
-		def firstName = params.fname;
-		db.execute("insert into clinicdb(fname,lname,mname,college) values('${firstName}')");
+		//def firstName = params.fname;
+		//db.execute("insert into clinicdb(fname,lname,mname,college) values('${firstName}')");
 		
-	}
+	//}
 	
 	def editPrescription() {
 		def db = new Sql(dataSource)

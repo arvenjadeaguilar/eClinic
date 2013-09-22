@@ -3,8 +3,8 @@
 					<fieldset>
 						<table>
 							<tr>
-								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Submit</button></td> 
 								<td><input type="text" placeholder="ID No. / Last Name"/></td>
+								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td> 
 							</td>	
 						</table>	
 					</fieldset>
@@ -13,7 +13,7 @@
 
 			
 			
-<div id="Student-Add">
+<!--<div id="Student-Add">
 	<h1>Student</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
@@ -150,4 +150,4 @@
 	</g:form>
 	
 	</div>
-</div>			
+</div>			-->

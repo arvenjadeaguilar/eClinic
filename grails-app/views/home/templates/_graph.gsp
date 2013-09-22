@@ -3,8 +3,8 @@
 					<fieldset>
 						<table>
 							<tr>
-								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Submit</button></td> 
-								<td><input type="text" placeholder="ID No. / Last Name"/></td>
+								<td><input type="text" placeholder=""/></td>
+								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td> 
 							</td>	
 						</table>	
 					</fieldset>

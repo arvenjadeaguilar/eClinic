@@ -24,45 +24,6 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 SET search_path = public, pg_catalog;
 
-SET default_tablespace = '';
-
-SET default_with_oids = false;
-
---
--- Name: clinicdb; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE clinicdb (
-    id bigint NOT NULL,
-    version bigint NOT NULL,
-    age character varying(255) NOT NULL,
-    birthday character varying(255) NOT NULL,
-    blood_type character varying(255) NOT NULL,
-    bname character varying(255) NOT NULL,
-    c_address character varying(255) NOT NULL,
-    college character varying(255) NOT NULL,
-    course character varying(255) NOT NULL,
-    fage character varying(255) NOT NULL,
-    firt_name character varying(255) NOT NULL,
-    fname character varying(255) NOT NULL,
-    foccupation character varying(255) NOT NULL,
-    gender character varying(255) NOT NULL,
-    height character varying(255) NOT NULL,
-    id_no character varying(255) NOT NULL,
-    last_name character varying(255) NOT NULL,
-    mage character varying(255) NOT NULL,
-    middle_name character varying(255) NOT NULL,
-    mname character varying(255) NOT NULL,
-    moccupation character varying(255) NOT NULL,
-    postal_code character varying(255) NOT NULL,
-    province character varying(255) NOT NULL,
-    sname character varying(255) NOT NULL,
-    weight character varying(255) NOT NULL
-);
-
-
-ALTER TABLE public.clinicdb OWNER TO postgres;
-
 --
 -- Name: hibernate_sequence; Type: SEQUENCE; Schema: public; Owner: postgres
 --
@@ -84,6 +45,10 @@ ALTER TABLE public.hibernate_sequence OWNER TO postgres;
 SELECT pg_catalog.setval('hibernate_sequence', 1, false);
 
 
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
 --
 -- Name: medical_history; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
@@ -99,10 +64,28 @@ CREATE TABLE medical_history (
 ALTER TABLE public.medical_history OWNER TO postgres;
 
 --
--- Data for Name: clinicdb; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Name: student; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
+CREATE TABLE student (
+    id bigint NOT NULL,
+    version bigint NOT NULL,
+    address character varying(255) NOT NULL,
+    birthday timestamp without time zone NOT NULL,
+    blood_type character varying(255) NOT NULL,
+    college character varying(255) NOT NULL,
+    first_name character varying(255) NOT NULL,
+    gender character varying(255) NOT NULL,
+    height character varying(255) NOT NULL,
+    id_number character varying(255) NOT NULL,
+    last_name character varying(255) NOT NULL,
+    major character varying(255) NOT NULL,
+    middle_name character varying(255) NOT NULL,
+    weight character varying(255) NOT NULL
+);
 
+
+ALTER TABLE public.student OWNER TO postgres;
 
 --
 -- Data for Name: medical_history; Type: TABLE DATA; Schema: public; Owner: postgres
@@ -111,11 +94,9 @@ ALTER TABLE public.medical_history OWNER TO postgres;
 
 
 --
--- Name: clinicdb_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- Data for Name: student; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY clinicdb
-    ADD CONSTRAINT clinicdb_pkey PRIMARY KEY (id);
 
 
 --
@@ -124,6 +105,14 @@ ALTER TABLE ONLY clinicdb
 
 ALTER TABLE ONLY medical_history
     ADD CONSTRAINT medical_history_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: student_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY student
+    ADD CONSTRAINT student_pkey PRIMARY KEY (id);
 
 
 --
