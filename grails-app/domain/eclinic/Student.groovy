@@ -16,6 +16,7 @@ class Student {
 	String bloodType
 
 
+	static hasMany = [medicalHistories: MedicalHistory]
     static constraints = {
     }
 }
