@@ -14,7 +14,7 @@ class Student {
 	String weight
 	String height
 	String bloodType
-
+	boolean enrolled
 
 	static hasMany = [medicalHistories: MedicalHistory]
     static constraints = {
