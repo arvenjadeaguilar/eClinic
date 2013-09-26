@@ -85,8 +85,16 @@ class HomeController {
 	def searchprofile(){
 		def db = new Sql(dataSource);
 		def searchStudent = params.studentSearch;
+		def confirm = db.execute("""SELECT * from Student WHERE last_name like '${searchStudent}'""");
+		def student;
 		
-		def student = db.execute("""SELECT INTO Student WHERE (lastname) VALUES('${searchStudent}')""")
-	
+		if(confirm==true){
+			student = db.rows("""SELECT * from Student WHERE last_name like '${searchStudent}'""");
+			println "" + student.first_name +"";	
+			}
+		
+		render(template:"templates/graph")
+		
+		
 	}
 }

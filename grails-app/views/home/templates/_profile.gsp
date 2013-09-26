@@ -1,4 +1,5 @@
 <div id="search">
+				
 				<g:form action="searchprofile">
 					<fieldset>
 						<table>
@@ -9,6 +10,7 @@
 						</table>	
 					</fieldset>
 				</g:form>
+				
 </div>
 
 			
