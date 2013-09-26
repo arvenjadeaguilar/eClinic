@@ -1,14 +1,14 @@
 <div id="search">
-				<form>
+				<g:form action="searchprofile">
 					<fieldset>
 						<table>
 							<tr>
-								<td><input type="text" placeholder="ID No. / Last Name"/></td>
+								<td><input type="text" name="studentSearch" placeholder="ID No. / Last Name"/></td>
 								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td> 
 							</td>	
 						</table>	
 					</fieldset>
-				</form>
+				</g:form>
 </div>
 
 			

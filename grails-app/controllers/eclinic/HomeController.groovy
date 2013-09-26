@@ -81,4 +81,12 @@ class HomeController {
 					   VALUES('${diagnosisId}', '${diagnosis}'""")
 	}
 	
+	
+	def searchprofile(){
+		def db = new Sql(dataSource);
+		def searchStudent = params.studentSearch;
+		
+		def student = db.execute("""SELECT INTO Student WHERE (lastname) VALUES('${searchStudent}')""")
+	
+	}
 }

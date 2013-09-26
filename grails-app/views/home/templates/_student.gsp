@@ -1,5 +1,5 @@
 <div id="search">
-				<form>
+				<g:form>
 					<fieldset>
 						<table>
 							<tr>
@@ -8,7 +8,7 @@
 							</td>	
 						</table>	
 					</fieldset>
-				</form>
+				</g:form>
 </div>
 
 			
