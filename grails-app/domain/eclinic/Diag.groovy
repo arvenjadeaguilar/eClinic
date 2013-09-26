@@ -1,6 +1,6 @@
 package eclinic
 
-class Diagnosis {
+class Diag {
 
 	String idNumber
 	String diagnosisId
