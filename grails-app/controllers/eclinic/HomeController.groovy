@@ -58,4 +58,30 @@ class HomeController {
 		
 	}
 	
+	def diagnosisIdGenerate(){
+		Date now = new Date()
+		def date = g.formatDate(format:"yyyy", date:new Date())
+		[date:date]
+
+		Random random = new Random()
+		String idCode = (String) random.nextInt(9000) + 1000
+		String idNumber = date+"-"+idCode
+		}
+	
+	
+	def addDiagnosis(){
+		def db = new Sql(dataSource)
+		
+		def diagnosisId = params.diagnosisId
+		def diagnosis = params.diagnosis
+		def studentId = params.studentId
+		def today = new Date()
+		
+		db.execute(""""INSER INTO diag (idNumber, diagnosisId, date)
+					   VALUES('${studentId}', '${diagnosisId}', '${today}'""")
+					   
+		db.execute(""""INSER INTO diagnosis (diagnosisId, diagnosis)
+					   VALUES('${diagnosisId}', '${diagnosis}'""")
+	}
+	
 }
