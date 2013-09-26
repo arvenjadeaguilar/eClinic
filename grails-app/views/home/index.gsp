@@ -23,11 +23,7 @@
 		</div>
 		</g:remoteLink>
 		
-		<g:remoteLink action="inventory" id="" update="page-body">
-		<div id="status">
-		Inventory
-		</div>
-		</g:remoteLink>
+		
 		
 		<g:remoteLink action="graph" id="" update="page-body">
 		<div id="status">

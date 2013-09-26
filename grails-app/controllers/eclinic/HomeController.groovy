@@ -23,10 +23,7 @@ class HomeController {
 		render(template:"templates/profile")
 	}
 	
-	def inventory(){
-		
-		render(template:"templates/inventory")
-	}
+	
 	
 	def graph(){
 	
