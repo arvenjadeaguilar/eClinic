@@ -77,8 +77,11 @@ class HomeController {
 		def studentId = params.studentId
 		def today = new Date()
 		
-		db.execute(""""INSER INTO diagnosis (idNumber, diagnosis, diagnosisId, date)
-					   VALUES('${studentId}', '${diagnosis}'), '${diagnosisId}', '${today}'""")
+		db.execute(""""INSER INTO diag (idNumber, diagnosisId, date)
+					   VALUES('${studentId}', '${diagnosisId}', '${today}'""")
+					   
+		db.execute(""""INSER INTO diagnosis (diagnosisId, diagnosis)
+					   VALUES('${diagnosisId}', '${diagnosis}'""")
 	}
 	
 }

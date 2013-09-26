@@ -1,13 +1,11 @@
 package eclinic
 
 class Diagnosis {
-
-	String idNumber
+	
+	String diagNum
 	String diagnosis
-	String diagnosisId
-	Date date
-
-
+	
+	static belongsTo = [diagnosis: Diag]
     static constraints = {
     }
 }
