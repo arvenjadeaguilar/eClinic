@@ -40,6 +40,17 @@ class HomeController {
 		
 	}
 	
+	def editStudentInfo() {
+		def db = new Sql(dataSource)
+		
+		def idNumber = params.id
+		def newHeight = params.height
+		def newWeight = params.weight
+		
+		db.execute("""UPDATE student SET height='${newHeight}', weight='${newWeight}' where id_number='${idNumber}'""")
+		render(template:"templates/profile")
+		
+	}
 	
 	def diagnosisIdGenerate(){
 		Date now = new Date()
