@@ -1,41 +1,37 @@
 <div id="search">
 				
 				
-				<g:form class="form-search" controller="home" action="searchprofile">
+				 <!-- <g:form class="form-search" controller="home" action="searchprofile">
 					<fieldset>
 						<table>
 							<tr>
 								<td><input type="text" name="parameter" placeholder="Search ID Number..."/></td>
-								<!--<g:remoteLink action="graph" id="" update="page-body">-->
-								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td> 
-								<!--</g:remoteLink>-->
+								
+								<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td>
+							
 							</td>	
 						</table>	
 					</fieldset>
-				</g:form>
 				
+				</g:form> -->
+				
+				
+				<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'searchprofile']">
+					<table>	
+							<td><input name="parameter" type="text" placeholder="Search ID Number..." /></td>
+							<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td>
+					</table>
+				</g:formRemote>
 				
 				
 </div>
 
-			
 			
 <div id="Student-Profile">
 	<h1 align="left">Student Profile</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
 		
-		<!--First Name : 
-		<br>
-		Last Name :
-		<br>
-		ID Number :
-		<br>
-		Course :
-		<br>
-		College :
-		<br>
-		Gender :-->
 		
 		<table>
 			<g:each in="${result}" var="${results}">

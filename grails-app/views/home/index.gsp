@@ -11,11 +11,6 @@
 		
 		<div id="status1">
 		
-		<!--<g:remoteLink action="student" id="" update="page-body">
-		<div id="status">
-		Student
-		</div>
-		</g:remoteLink>-->
 		
 		<g:remoteLink action="profile" id="" update="page-body">
 		<div id="status">
@@ -41,11 +36,6 @@
 		
 		
 		
-
-		
-		<!--<div id="page-body">
-			<g:render template="templates/student"/>
-		</div>-->
 		<div id="page-body">
 			<g:render template="templates/profile"/>
 		</div>
