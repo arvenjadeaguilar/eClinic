@@ -71,26 +71,40 @@ class HomeController {
 		def studentId = params.studentId
 		def today = new Date()
 		
-		db.execute(""""INSER INTO diag (idNumber, diagnosisId, date)
+		db.execute(""""INSERT INTO diag (idNumber, diagnosisId, date)
 					   VALUES('${studentId}', '${diagnosisId}', '${today}'""")
 					   
-		db.execute(""""INSER INTO diagnosis (diagnosisId, diagnosis)
+		db.execute(""""INSERT INTO diagnosis (diagnosisId, diagnosis)
 					   VALUES('${diagnosisId}', '${diagnosis}'""")
 	}
 	
 	
 	def searchprofile(){
-		def db = new Sql(dataSource);
-		def searchStudent = params.studentSearch;
-		def confirm = db.execute("""SELECT * from Student WHERE last_name like '${searchStudent}'""");
-		def student;
+		//def db = new Sql(dataSource);
+		//def parameter = params.parameter;
+		//def confirm = db.execute("""SELECT * from Student WHERE id_number like '${parameter}'""");
+		//def student;
 		
-		if(confirm==true){
-			student = db.rows("""SELECT * from Student WHERE last_name like '${searchStudent}'""");
-			println "" + student.first_name +"";	
-			}
+		def db = new Sql(dataSource)
+		def parameter = params.parameter
+		def result
 		
-		render(template:"templates/graph")
+		if(!parameter) {
+			result = db.rows("select * from student")
+		}
+		
+		else {
+			String query = """SELECT * from student WHERE id_number like '${parameter}'"""
+			result = db.rows(query)
+			println "" + result.id_number +"";	
+		}
+		
+		//if(confirm==true){
+			//student = db.execute("""SELECT * from Student WHERE id_number like '${parameter}'""");
+			//println "" + student.id_number +"";	
+			//}
+		
+		render(template:"templates/profile", model:[result:result,parameter:parameter])
 		
 		
 	}

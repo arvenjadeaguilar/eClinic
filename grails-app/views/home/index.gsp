@@ -11,11 +11,11 @@
 		
 		<div id="status1">
 		
-		<g:remoteLink action="student" id="" update="page-body">
+		<!--<g:remoteLink action="student" id="" update="page-body">
 		<div id="status">
 		Student
 		</div>
-		</g:remoteLink>
+		</g:remoteLink>-->
 		
 		<g:remoteLink action="profile" id="" update="page-body">
 		<div id="status">
@@ -31,11 +31,23 @@
 		</div>
 		</g:remoteLink>
 		
+		<g:remoteLink action="logout" id="" update="page-body">
+		<div id="status">
+		Logout
+		</div>
+		</g:remoteLink>
+		
 		</div>	
+		
+		
+		
 
 		
-		<div id="page-body">
+		<!--<div id="page-body">
 			<g:render template="templates/student"/>
+		</div>-->
+		<div id="page-body">
+			<g:render template="templates/profile"/>
 		</div>
 		
 		

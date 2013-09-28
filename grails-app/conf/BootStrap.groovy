@@ -13,7 +13,7 @@ class BootStrap {
  
     private void createData() {       
  
-        [Carlo: 'Apas', Ken: 'Villar', Arven: 'Aguilar', Jemuel: 'Racsa', Jervey: 'Benitez'].each {fName, lName ->
+        [Carlo: 'Apas', Ken: 'Vilar', Arven: 'Aguilar', Jemuel: 'Racsa', Jervey: 'Benitez'].each {fName, lName ->
             def student = new Student(firstName: fName, middleName:"Rubin",lastName: lName, college: "SCS", major:"BSCS", idNumber:"2010-0001",
 									  gender: "MALE", birthday: new Date(), address: "Iligan City", weight: "50kgs", height:"5.0", bloodType:"O").save(flush:true)
             println "nka sulod ko"
