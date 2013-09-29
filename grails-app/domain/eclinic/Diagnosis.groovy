@@ -2,7 +2,9 @@ package eclinic
 
 class Diagnosis {
 	
+	String name
 	String prescription
+	Date dateCreated
 	
 	static belongsTo = [student: Student]
     
@@ -11,6 +13,6 @@ class Diagnosis {
     }
 	
 	String toString(){
-		
+		"${name}"
 	}
 }
