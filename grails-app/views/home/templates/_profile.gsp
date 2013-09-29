@@ -104,11 +104,15 @@
 			
 			<table>
 				Student's Medical History:
+				<tr>
+					<td><strong>Diagnosis:</strong></td>
+					<td><strong>Date diagnosed:</strong></td>	
+
+				</tr>
 				<g:each in="${student.diagnoses}" var="${diagnosis}">
 				<tr>
-					<td>
-						${diagnosis}
-					</td>
+					<td>${diagnosis}</td>
+					<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></td>					
 				</tr>
 				</g:each>		
 			</table>		

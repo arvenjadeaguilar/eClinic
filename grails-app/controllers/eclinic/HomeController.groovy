@@ -112,4 +112,11 @@ class HomeController {
 		input.findAll( /\d+/ )*.toInteger()
 	}
 	
+	def viewStudentRatio(){
+	
+
+	
+	}
+	
+	
 }
