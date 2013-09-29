@@ -2,10 +2,15 @@ package eclinic
 
 class Diagnosis {
 	
-	String diagNum
-	String diagnosis
+	String prescription
 	
-	static belongsTo = [diagnosis: Diag]
-    static constraints = {
+	static belongsTo = [student: Student]
+    
+	static constraints = {
+		prescription blank: false
     }
+	
+	String toString(){
+		
+	}
 }

@@ -84,7 +84,7 @@
 			</tr>
 			<tr>
 				<td>Middle Name : ${results.middle_name}</td>
-				<td>Birthday : ${results.birthday}</td>
+				<td>Birthday : <g:formatDate format="MMMM dd, yyyy" date="${results.birthday}"/></td>
 			</tr>
 			<tr>
 				<td>Address : ${results.address}</td>
