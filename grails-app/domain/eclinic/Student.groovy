@@ -16,7 +16,7 @@ class Student {
 	String bloodType
 	boolean enrolled
 
-	static hasMany = [medicalHistories: MedicalHistory]
+	static hasMany = [diagnoses: Diagnosis]
     static constraints = {
     }
 }
