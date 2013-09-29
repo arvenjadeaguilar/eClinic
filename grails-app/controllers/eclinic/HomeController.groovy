@@ -28,13 +28,6 @@ class HomeController {
 	}
 	
 	
-	def logout(){
-	
-		render(template:"templates/logout")
-	}
-	
-	
-	
 	def editPrescription() {
 		def db = new Sql(dataSource)
 		
@@ -104,7 +97,13 @@ class HomeController {
 		figure = result.get(0).weight
 		def weight = extractInts(figure).get(0)
 		
-		render(template:"templates/profile", model:[result:result,parameter:parameter,feet:feet,inch:inch,weight:weight])
+		
+		//jemuel's code below: won't do any harm
+		def student = Student.findByIdNumber(parameter)
+		
+		
+		
+		render(template:"templates/profile", model:[result:result,parameter:parameter,feet:feet,inch:inch,weight:weight,student:student])
 		
 		
 	}

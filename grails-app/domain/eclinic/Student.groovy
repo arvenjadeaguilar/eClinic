@@ -19,4 +19,8 @@ class Student {
 	static hasMany = [diagnoses: Diagnosis]
     static constraints = {
     }
+	
+	String toString(){
+		"${firstName}" + " " + "${lastName}"
+	}
 }

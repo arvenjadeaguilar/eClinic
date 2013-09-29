@@ -1,4 +1,3 @@
-<!--
 <div id="search">
 				<form>
 					<fieldset>
@@ -11,18 +10,16 @@
 					</fieldset>
 				</form>
 </div>
--->
+
 			
 			
 <div id="Student-Profile">
 	<h1>Graph</h1>
 	
-	<button type="button" class="btn btn-primary" data-loading-text="Loading...">View Graph</button>
 	
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
 		
-	
+			
 	</div>
-</div>
-
+</div>			

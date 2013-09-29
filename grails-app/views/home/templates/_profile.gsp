@@ -64,7 +64,7 @@
 			<g:if test="${result}">
 			<tr>
 				<td width="90%"></td>
-				<td align="right"><button id="showOrHide" class="btn btn-info">Edit</button></td>
+				<td align="right"><button id="showOrHide">Edit</button></td>
 			</tr>
 			</g:if>
 		</table>
@@ -99,6 +99,20 @@
 			</tr>
 			</g:each>		
 		</table>
+		
+		<g:if test="${student.diagnoses}">	
+			
+			<table>
+				Student's Medical History:
+				<g:each in="${student.diagnoses}" var="${diagnosis}">
+				<tr>
+					<td>
+						${diagnosis}
+					</td>
+				</tr>
+				</g:each>		
+			</table>		
+		</g:if>
 		<center>
 		<table id="showHideTable">
 			<tr id="editForm">
@@ -119,7 +133,7 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<input type="submit" class="btn btn-primary" data-loading-text="Loading...">
+							<input type="submit" class="btn" data-loading-text="Loading...">
 						</center>
 					</td>
 				</g:formRemote>

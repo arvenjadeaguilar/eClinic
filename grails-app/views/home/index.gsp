@@ -9,7 +9,12 @@
 		
 		
 		
+		
+		
 	</head>
+	
+	
+
 	<body>
 		
 		<div id="status1">
@@ -41,6 +46,7 @@
 		
 		<div id="page-body">
 			<g:render template="templates/profile"/>
+			    
 		</div>
 		
 		
