@@ -60,7 +60,14 @@
 	<h1 align="left">Student Profile</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
-		
+		<table>
+			<g:if test="${result}">
+			<tr>
+				<td width="90%"></td>
+				<td align="right"><button id="showOrHide">Edit</button></td>
+			</tr>
+			</g:if>
+		</table>
 		
 	
 		

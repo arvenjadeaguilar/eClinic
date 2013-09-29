@@ -45,7 +45,7 @@
 		
 		
 		<div id="page-body">
-			<g:render template="templates/searchPage"/>
+			<g:render template="templates/profile"/>
 			    
 		</div>
 		

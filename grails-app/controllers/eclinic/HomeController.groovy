@@ -98,7 +98,7 @@ class HomeController {
 		def weight = extractInts(figure).get(0)
 		
 		
-		//jemuel's code below: won't do any harm
+		//added
 		def student = Student.findByIdNumber(parameter)
 		
 		
