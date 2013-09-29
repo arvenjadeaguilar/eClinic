@@ -43,13 +43,17 @@ class HomeController {
 	def editStudentInfo() {
 		def db = new Sql(dataSource)
 		
-		def idNumber = params.id
-		def newHeight = params.height
-		def newWeight = params.weight
+		def idNumber = params.idNumber
+		def feet = params.feet
+		def inch = params.inch
+		def weight = params.weight
+		String newWeight = weight + "kgs"
+		String newHeight = feet + "ft " + inch + "in"
 		
 		db.execute("""UPDATE student SET height='${newHeight}', weight='${newWeight}' where id_number='${idNumber}'""")
-		render(template:"templates/profile")
+		def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
 		
+		render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
 	}
 	
 	def diagnosisIdGenerate(){
@@ -80,32 +84,26 @@ class HomeController {
 	
 	
 	def searchprofile(){
-		//def db = new Sql(dataSource);
-		//def parameter = params.parameter;
-		//def confirm = db.execute("""SELECT * from Student WHERE id_number like '${parameter}'""");
-		//def student;
-		
+	
 		def db = new Sql(dataSource)
 		def parameter = params.parameter
-		def result
 		
-		if(!parameter) {
-			result = db.rows("select * from student")
-		}
+		def result = db.rows("SELECT * from student WHERE id_number='${parameter}'")
 		
-		else {
-			String query = """SELECT * from student WHERE id_number like '${parameter}'"""
-			result = db.rows(query)
-			println "" + result.id_number +"";	
-		}
+		String figure = result.get(0).height
+		def feet = extractInts(figure).get(0)
+		def inch = extractInts(figure).get(1)
 		
-		//if(confirm==true){
-			//student = db.execute("""SELECT * from Student WHERE id_number like '${parameter}'""");
-			//println "" + student.id_number +"";	
-			//}
+		figure = result.get(0).weight
+		def weight = extractInts(figure).get(0)
 		
-		render(template:"templates/profile", model:[result:result,parameter:parameter])
+		render(template:"templates/profile", model:[result:result,parameter:parameter,feet:feet,inch:inch,weight:weight])
 		
 		
 	}
+	
+	def extractInts( String input ) {
+		input.findAll( /\d+/ )*.toInteger()
+	}
+	
 }

@@ -6,6 +6,9 @@
 		<link rel="stylesheet" href="${resource(dir: 'css', file: 'home.css')}" type="text/css">
 		<script src="../js/jquery-ui.js"></script>
 		<script src="../js/jquery-1.8.3.js"></script>
+		
+		
+		
 	</head>
 	<body>
 		

@@ -1,3 +1,13 @@
+<jq:jquery>
+	$(document).ready(function(){
+		$("#editForm").hide()
+		$("#showOrHide").click(function(){
+			$("#editForm").toggle('slow');
+		});
+	});
+</jq:jquery>
+
+
 <div id="search">
 				
 				
@@ -25,14 +35,19 @@
 				
 				
 </div>
-
 			
 <div id="Student-Profile">
 	<h1 align="left">Student Profile</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
-		
-		
+		<table>
+			<g:if test="${result}">
+			<tr>
+				<td width="90%"></td>
+				<td align="right"><button id="showOrHide">Edit</button></td>
+			</tr>
+			</g:if>
+		</table>
 		<table>
 			<g:each in="${result}" var="${results}">
 			<tr>
@@ -62,9 +77,25 @@
 			<tr>
 				<td>Enrolled : ${results.enrolled}</td>
 			</tr>
-			</g:each>
+			</g:each>		
 		</table>
-		
+		<table>
+			<tr id="editForm">
+				<g:formRemote name="editform" update="page-body" url="[controller: 'home', action:'editStudentInfo']">
+					<td width="40%">
+						New height:<small> <input type="text" name="feet" value="${feet}">(ft) 
+						<input type="text" name="inch" value="${inch}">(in)</small>
+					</td>
+					<td width="40%">
+						New weight: <input type="text" name="weight" value="${weight}"><small>(kgs)</small>
+					</td>
+						 <input type="hidden" name="idNumber" value="${parameter}">
+					<td width="20%"><center><input type="submit" class="btn" data-loading-text="Loading..."></center></td>
+				</g:formRemote>
+			</tr>
+				
+		</table>
+	
 		
 	
 	</div>

@@ -21,7 +21,7 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="localhost:8080/eClinic"><img src="${resource(dir: 'images', file: 'eClinic.png')}" alt="Grails"/></a></div>
+		<div id="grailsLogo" role="banner"><a href="localhost:8080/eClinic"><img src="${resource(dir: 'images', file: 'eClinic.png')}" alt="eClinic"/></a></div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
