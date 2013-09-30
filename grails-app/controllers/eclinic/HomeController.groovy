@@ -55,8 +55,10 @@ class HomeController {
 		
 		render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
 	}
-	
-	def diagnosisIdGenerate(){
+
+//generate id format: YYYY-NNNN basi'g kaylanganon	
+
+	def IdGenerate(){
 		Date now = new Date()
 		def date = g.formatDate(format:"yyyy", date:new Date())
 		[date:date]
@@ -67,20 +69,20 @@ class HomeController {
 		}
 	
 	
-	def addDiagnosis(){
-		def db = new Sql(dataSource)
-		
-		def diagnosisId = params.diagnosisId
-		def diagnosis = params.diagnosis
-		def studentId = params.studentId
-		def today = new Date()
-		
-		db.execute(""""INSERT INTO diag (idNumber, diagnosisId, date)
-					   VALUES('${studentId}', '${diagnosisId}', '${today}'""")
-					   
-		db.execute(""""INSERT INTO diagnosis (diagnosisId, diagnosis)
-					   VALUES('${diagnosisId}', '${diagnosis}'""")
-	}
+//	def addDiagnosis(){
+//		def db = new Sql(dataSource)
+//		
+//		def diagnosisId = params.diagnosisId
+//		def diagnosis = params.diagnosis
+//		def studentId = params.studentId
+//		def today = new Date()
+//		
+//		db.execute(""""INSERT INTO diag (idNumber, diagnosisId, date)
+//					   VALUES('${studentId}', '${diagnosisId}', '${today}'""")
+//					   
+//		db.execute(""""INSERT INTO diagnosis (diagnosisId, diagnosis)
+//					   VALUES('${diagnosisId}', '${diagnosis}'""")
+//	}
 	
 	
 	def searchprofile(){
