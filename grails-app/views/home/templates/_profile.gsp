@@ -64,7 +64,7 @@
 			<g:if test="${result}">
 			<tr>
 				<td width="90%"></td>
-				<td align="right"><button id="showOrHide">Edit</button></td>
+				<td align="right"><button id="showOrHide" class="btn btn-info">Edit</button></td>
 			</tr>
 			</g:if>
 		</table>

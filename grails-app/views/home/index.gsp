@@ -25,12 +25,12 @@
 		<g:remoteLink action="profile" id="" update="page-body">
 		<div id="status">
 		Profile
-		<form action='${post.url}' method="POST" id="prescription" autocomplete="off">
+		<!-- <form action='${post.url}' method="POST" id="prescription" autocomplete="off">
 			Enter Prescription here
 			<textarea rows="7" cols="50" form="prescription">
 			</textarea>
 			<input type="submit">
-		</form>
+		</form>-->
 		
 		</div>
 		</g:remoteLink>

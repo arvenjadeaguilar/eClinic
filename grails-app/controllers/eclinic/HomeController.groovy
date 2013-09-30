@@ -28,6 +28,12 @@ class HomeController {
 	}
 	
 	
+	def logout(){
+	
+		render(template:"templates/logout")
+	}
+	
+	
 	def editPrescription() {
 		def db = new Sql(dataSource)
 		
