@@ -64,7 +64,7 @@
 			<g:if test="${result}">
 			<tr>
 				<td width="90%"></td>
-				<td align="right"><button id="showOrHide">Edit</button></td>
+				<td align="right"><button id="showOrHide" class="btn btn-info">Edit</button></td>
 			</tr>
 			</g:if>
 		</table>
@@ -119,7 +119,7 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<input type="submit" class="btn" data-loading-text="Loading...">
+							<input type="submit" class="btn btn-primary" data-loading-text="Loading...">
 						</center>
 					</td>
 				</g:formRemote>
