@@ -1,3 +1,23 @@
+<style>
+	#showHideTable{
+		border:2px dashed #6497b1;
+		width:65%;
+	}
+	#sub1{
+		vertical-align:middle;
+	}
+	#sub2{
+		vertical-align:middle;
+	}
+	#editForm{
+		background-color:#b1dafb;
+	}
+	#inputForm{
+		width:20px;
+		height:16px;
+	}
+	
+</style>
 <jq:jquery>
 	$(document).ready(function(){
 		$("#editForm").hide()
@@ -79,22 +99,34 @@
 			</tr>
 			</g:each>		
 		</table>
-		<table>
+		<center>
+		<table id="showHideTable">
 			<tr id="editForm">
 				<g:formRemote name="editform" update="page-body" url="[controller: 'home', action:'editStudentInfo']">
-					<td width="40%">
-						New height:<small> <input type="text" name="feet" value="${feet}">(ft) 
-						<input type="text" name="inch" value="${inch}">(in)</small>
+					<td id="sub1">
+						<center>
+							New height:<small> <input id="inputForm" type="text" name="feet" value="${feet}">(ft) 
+							<input id="inputForm" type="text" name="inch" value="${inch}">(in)</small>
+						</center>
 					</td>
-					<td width="40%">
-						New weight: <input type="text" name="weight" value="${weight}"><small>(kgs)</small>
+					<td id="sub1">
+						<center>
+							New weight: <input id="inputForm" type="text" name="weight" value="${weight}"><small>(kgs)</small>
+						</center>
 					</td>
-						 <input type="hidden" name="idNumber" value="${parameter}">
-					<td width="20%"><center><input type="submit" class="btn" data-loading-text="Loading..."></center></td>
+						<center>
+							<input type="hidden" name="idNumber" value="${parameter}">
+						</center>
+					<td id="sub2">
+						<center>
+							<input type="submit" class="btn" data-loading-text="Loading...">
+						</center>
+					</td>
 				</g:formRemote>
 			</tr>
 				
 		</table>
+		</center>
 	
 		
 	
