@@ -124,12 +124,12 @@ class HomeController {
 	}
 	def route_diagnosis(){
 		
+		def idNum = params.studentId;
 		
+		System.out.println(idNum);
 		
-		System.out.println("arven"+idNum);
+		render(template:"templates/diagnosis", model:[idNum:idNum]);
 		
-		render(template:"templates/diagnosis")
-	
 	}
 	
 	

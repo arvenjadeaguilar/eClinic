@@ -18,7 +18,7 @@
 	<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">
 			<table>	
 				<tr>
-					<td>ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"</td>
+					<td>ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"/></td>
 				</tr>
 				
 				<tr>

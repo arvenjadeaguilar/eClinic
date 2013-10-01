@@ -87,6 +87,7 @@
 				<td>Enrolled : ${results.enrolled}</td>
 			</tr>
 			<tr>
+				<td><input type="hidden" value="${results.id_number}" name="studentId"/></td>
 				<td align="right"><button id="add-Description" type="submit"class="btn btn-primary" name="idNum" value="1">Add Prescription</button></td>
 			</tr>
 			</g:each>		
