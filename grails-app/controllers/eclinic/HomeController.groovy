@@ -5,6 +5,7 @@ import groovy.sql.Sql
 
 class HomeController {
 
+	def idNum
 	def dataSource
 	 
     def index() { }
@@ -85,6 +86,8 @@ class HomeController {
 	
 	def searchprofile(){
 	
+		idNum = params.parameter
+		
 		def db = new Sql(dataSource)
 		def parameter = params.parameter
 		
@@ -115,6 +118,15 @@ class HomeController {
 	def viewStudentRatio(){
 	
 
+	
+	}
+	def route_diagnosis(){
+		
+		
+		
+		System.out.println("arven"+idNum);
+		
+		render(template:"templates/diagnosis")
 	
 	}
 	

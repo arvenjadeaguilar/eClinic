@@ -43,14 +43,20 @@
 	<h1 align="left">Student Profile</h1>
 	<hr/>
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
+	
+		
 		<table>
 			<g:if test="${result}">
 			<tr>
-				<td width="90%"></td>
+				<td width="80%"></td>
+				
 				<td align="right"><button id="showOrHide">Edit</button></td>
 			</tr>
 			</g:if>
 		</table>
+		
+		<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'route_diagnosis']">
+		
 		<table>
 			<g:each in="${result}" var="${results}">
 			<tr>
@@ -80,8 +86,13 @@
 			<tr>
 				<td>Enrolled : ${results.enrolled}</td>
 			</tr>
+			<tr>
+				<td align="right"><button id="add-Description" type="submit"class="btn btn-primary" name="idNum" value="1">Add Prescription</button></td>
+			</tr>
 			</g:each>		
 		</table>
+		
+		</g:formRemote> 
 		
 		<!--
 		
