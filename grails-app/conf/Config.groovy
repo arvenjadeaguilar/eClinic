@@ -94,3 +94,5 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'eclinic.Admin'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'eclinic.AdminAuthority'
 grails.plugins.springsecurity.authority.className = 'eclinic.Authority'
+
+grails.config.defaults.locations = [KickstartResources]

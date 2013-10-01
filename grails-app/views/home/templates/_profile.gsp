@@ -117,9 +117,31 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<input type="submit" class="btn" data-loading-text="Loading...">
+							<a data-toggle="modal" href="#example" class="btn">Submit</a>
 						</center>
 					</td>
+					
+					
+					<div class="container">
+						<div id="example" class="modal hide fade in" style="display: none; ">
+							<div class="modal-header">
+								<a class="close icon-remove" data-dismiss="modal">X</a>
+								<br/><h3>Are you sure?</h3>
+							</div>
+							<div class="modal-body">
+								<g:form controller="home" action="editStudentInfo">
+									<center>
+										<input type="submit" class="btn btn-primary btn-default" value="Yes"/>
+									</center>
+								</g:form>		        
+							</div>
+							<div class="modal-footer">
+								<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+							</div>
+						</div>
+					</div>
+					
+					
 				</g:formRemote>
 			</tr>
 				
