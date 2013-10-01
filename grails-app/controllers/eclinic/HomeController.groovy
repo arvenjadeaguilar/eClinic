@@ -76,9 +76,15 @@ class HomeController {
 		def prescription = params.prescription;
 		def studentId = params.studentId
 		def today = new Date()
-						   
-		db.execute(""""INSERT INTO diagnosis (name, prescription, dateCreated)
-					   VALUES('${diagnosis}', '${prescription}','${today}'""")
+				
+		def studentInstance = Student.findByIdNumber(studentId)
+		println "ang student sa pag add ug diagnosis kai: " + studentInstance
+		
+		
+		def diagnosisInstance = new Diagnosis(name: diagnosis ,prescription: prescription ,student: studentInstance).save(flush:true)
+//		db.execute(""""INSERT INTO diagnosis (name, prescription, dateCreated)
+//					   VALUES('${diagnosis}', '${prescription}','${today}'""")
+		
 		
 		System.out.println("diagnosisId"+diagnosisId+" diagnosis:"+diagnosis+" studentId:"+studentId);
 	}
