@@ -1,3 +1,10 @@
+<style>
+	tr:hover{
+		background-color:white;
+	}
+	
+</style>
+
 <div id="search">
 				
 				<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'searchprofile']">
@@ -23,13 +30,13 @@
 				
 				<tr>
 					
-					<td align="center" width="90%">Diagnosis: <textarea name="diagnosis" rows=10 cols=60></textarea></td>
+					<td align="center" width="90%">Diagnosis:</br> <textarea name="diagnosis" rows=10 cols=100></textarea></td>
 				
 				</tr>
 				
 				<tr>
 					
-					<td align="center" width="90%">Prescription: <textarea name="prescription" rows=10 cols=60></textarea></td>
+					<td align="center" width="90%">Prescription: </br><textarea name="prescription" rows=10 cols=60></textarea></td>
 				
 				</tr>
 				

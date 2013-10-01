@@ -73,14 +73,15 @@ class HomeController {
 		
 		def diagnosisId = diagnosisIdGenerate();
 		def diagnosis = params.diagnosis
+		def prescription = params.prescription;
 		def studentId = params.studentId
 		def today = new Date()
 		
 		db.execute(""""INSERT INTO diag (idNumber, diagnosisId, date)
 					   VALUES('${studentId}', '${diagnosisId}', '${today}'""")
 					   
-		db.execute(""""INSERT INTO diagnosis (diagnosisId, diagnosis)
-					   VALUES('${diagnosisId}', '${diagnosis}'""")
+		db.execute(""""INSERT INTO diagnosis (diagnosisId, name,prescription)
+					   VALUES('${diagnosisId}', '${diagnosis}','${prescription}'""")
 		
 		System.out.println("diagnosisId"+diagnosisId+" diagnosis:"+diagnosis+" studentId:"+studentId);
 	}

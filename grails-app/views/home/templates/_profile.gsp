@@ -16,7 +16,9 @@
 		width:20px;
 		height:16px;
 	}
-	
+	tr:hover{
+		background-color:white;
+	}
 </style>
 <jq:jquery>
 	$(document).ready(function(){
