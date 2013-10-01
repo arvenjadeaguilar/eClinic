@@ -10,20 +10,35 @@
 				
 </div>
 			
-<div id="Student-Profile">
-	<h1 align="left">Student Profile</h1>
+<div id="diagnosis">
+	<h1 align="left">Diagnosis</h1>
 	<hr/>
-	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
-	
+	<div  id="add-diagnosis" style="height:400px; overflow-y:scroll;">
 		
-		<table>
-			<g:if test="${result}">
-			<tr>
-				<td width="80%"></td>
+	<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">
+			<table>	
+				<tr>
+					<td>ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"</td>
+				</tr>
 				
-				<td align="right"><button id="showOrHide">Edit</button></td>
-			</tr>
-			</g:if>
-		</table>
+				<tr>
+					
+					<td align="center" width="90%">Diagnosis: <textarea name="diagnosis" rows=10 cols=60></textarea></td>
+				
+				</tr>
+				
+				<tr>
+					
+					<td align="center" width="90%">Prescription: <textarea name="prescription" rows=10 cols=60></textarea></td>
+				
+				</tr>
+				
+				<tr>
+					<td><button type="text" class="btn btn-primary" data-loading-text="Loading...">Add</button></td>
+				</tr>
+			</table>
+					
+	</g:formRemote>	
+		
 	</div>
 </div>

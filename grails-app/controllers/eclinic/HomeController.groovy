@@ -71,7 +71,7 @@ class HomeController {
 	def addDiagnosis(){
 		def db = new Sql(dataSource)
 		
-		def diagnosisId = params.diagnosisId
+		def diagnosisId = diagnosisIdGenerate();
 		def diagnosis = params.diagnosis
 		def studentId = params.studentId
 		def today = new Date()
@@ -81,6 +81,8 @@ class HomeController {
 					   
 		db.execute(""""INSERT INTO diagnosis (diagnosisId, diagnosis)
 					   VALUES('${diagnosisId}', '${diagnosis}'""")
+		
+		System.out.println("diagnosisId"+diagnosisId+" diagnosis:"+diagnosis+" studentId:"+studentId);
 	}
 	
 	
