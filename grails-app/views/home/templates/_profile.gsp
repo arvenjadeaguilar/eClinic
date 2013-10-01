@@ -52,7 +52,7 @@
 			<tr>
 				<td width="80%"></td>
 				
-				<td align="right"><button id="showOrHide">Edit</button></td>
+				<td align="right"><button id="showOrHide" class="btn btn-primary">Edit</button></td>
 			</tr>
 			</g:if>
 		</table>
@@ -134,12 +134,11 @@
 							<div class="modal-body">
 								<g:form controller="home" action="editStudentInfo">
 									<center>
-										<input type="submit" class="btn btn-primary btn-default" value="Yes"/>
+										<input type="submit" class="btn btn-primary btn-lg btn-block" value="Yes"/>
 									</center>
-								</g:form>		        
-							</div>
-							<div class="modal-footer">
-								<a href="#" class="btn" data-dismiss="modal">Cancel</a>
+								</g:form>
+								<br/>
+								<a href="#" class="btn btn-default btn-lg btn-block" data-dismiss="modal">No</a>
 							</div>
 						</div>
 					</div>
