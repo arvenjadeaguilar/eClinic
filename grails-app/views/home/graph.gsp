@@ -7,8 +7,8 @@
     <h2>Open Graph</h2>
     
     <br/><br/>
-	<center>
-		<ofchart:chart name="demo-chart" url="${createLink(action:'PIE_CHART')}" width="800" height="300"/>
-	</center>
+	
+		<ofchart:chart name="demo-chart" url="${createLink(action:'PIE_CHART')}" width="400" height="300"/>
+	
   </body>
 </html>
