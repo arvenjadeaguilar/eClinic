@@ -12,7 +12,7 @@
 				
 				<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'searchprofile']">
 					<table>	
-							<td><input name="parameter" type="text" placeholder="Search ID Number..." /></td>
+							<td><input name="parameter" type="text" placeholder="Search ID Number..." required="true"/></td>
 							<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td>
 					</table>
 				</g:formRemote>
@@ -26,7 +26,23 @@
 	<div  id="add-diagnosis" style="height:360px; overflow-y:scroll;">
 		
 	<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">
-			
+
+			<table border='1'>	
+				<tr>
+					<td>ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"/></td>
+				</tr>
+				
+				<tr>
+					
+					<td align="center" width="90%">Diagnosis:</br> <input name="diagnosis" required="true"/></td>
+				
+				</tr>
+				
+				<tr>
+					
+					<td align="center" width="90%">Prescription: </br><textarea id="pres" name="prescription" required="true"></textarea></td>
+				
+				</tr>
 				
 				ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"/>
 				<br/>
