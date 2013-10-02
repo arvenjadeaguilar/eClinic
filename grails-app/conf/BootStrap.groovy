@@ -28,22 +28,27 @@ class BootStrap {
  
     private void createData() {       
  
-        [Carlo: 'Apas', Ken: 'Vilar', Arven: 'Aguilar', Jemuel: 'Racsa', Jervey: 'Benitez'].each {fName, lName ->
-            def student = new Student(firstName: fName, middleName:"Rubin",lastName: lName, college: "SCS", major:"BSCS", idNumber:"2010-0001",
-									  gender: "MALE", birthday: new Date(), address: "Iligan City", weight: "50kgs", height:"5.0", bloodType:"O").save(flush:true)
-            println "nka sulod ko"
-        }
 		int id = 100
 		for(int i=0; i<100; i++){
 			
 			
 			String studentName = "Student" + i
 			def student = new Student(firstName: studentName, middleName:studentName,lastName:studentName, college: "SCS", major:"BSCS", idNumber:"2010-0"+id,
-									  gender: "MALE", birthday: new Date(), address: "Iligan City", weight: "50kgs", height:"5.0", bloodType:"O").save(flush:true)
+									  gender: "MALE", birthday: new Date(), address: "Iligan City", weight: "50kgs", height:"5.0", bloodType:"O", enrolled:true).save(flush:true)
 			id++
 		
 		
 		}
+		
+		 def userRole = new Authority(authority: 'ROLE_USER').save()
+ 
+        /* The default password for all user. No need to encode here to avoid double encoding. */
+        String password = 'password'
+ 
+        [carlo: 'Carlo Joel Apas', ken: 'Ken Villar', arven: 'Arven Jade Aguilar', jemuel: 'Jemuel Racsa', jervey: 'Jervey Benitez'].each { userName, realName ->
+            def user = new Admin(username: userName, password: password, enabled: true).save()
+            AdminAuthority.create user, userRole, true
+        }
     }
 }
 
