@@ -9,9 +9,11 @@
     <h2>Open Graph</h2>
     
     <br/><br/>
-		
-			<ofchart:chart name="chart1" url="${createLink(action:'PIE_CHART')}" width="400" height="300"/>
-			<ofchart:chart name="chart2" url="${createLink(action:'BAR_CHART')}" width="400" height="300"/>
-		
+	
+		<ofchart:chart name="demo-chart" url="${createLink(action:'BAR_CHART_3D')}" width="800" height="200"/>
+			
+		<ofchart:chart name="chart1" url="${createLink(action:'PIE_CHART')}" width="400" height="300"/>
+
+
   </body>
 </html>

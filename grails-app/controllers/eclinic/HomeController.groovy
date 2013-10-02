@@ -20,7 +20,7 @@ import java.math.MathContext
 import jofc2.model.elements.StackedBarChart
 import jofc2.model.elements.StackedBarChart.StackValue
 import jofc2.model.elements.AbstractDot
-
+import java.util.*;
 
 
 class HomeController {
@@ -192,10 +192,56 @@ class HomeController {
 		.addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
     }
-
 	def BAR_CHART_3D = {
 
-        def c = new Chart(new Date().toString()).setXAxis(new XAxis().setLabels(OFC.stringify(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+
+		def db = new Sql(dataSource)
+		def result = db.rows("""select distinct name from diagnosis""");
+		def result_count = db.rows("""select count(distinct name) from diagnosis""");
+		
+		def max_num;
+		def max = 0;
+		def legend_ratio;
+		
+		
+		String[] label = new String[result_count.get(0).count]
+		int[] value = new int[result_count.get(0).count] 
+		for(int i=0;i<result_count.get(0).count;i++){
+			label[i] = result.get(i).name;
+			
+		}
+		
+		for(int j=0;j<result_count.get(0).count;j++){
+			def q = db.rows("""select count(name) from diagnosis where name = '${result.get(j).name}'""");
+			value[j] = q.get(0).count
+		}
+		
+		for(int k=0;k<result_count.get(0).count;k++)
+		{
+			if(value[k] > max)
+			max = value[k];
+			
+		}
+		
+		String[] legend = new String[max+10];
+		legend_ratio = (max)/10;
+		def x;
+		for(int l=0;l<max+10;l++)
+		{
+			if(l%10==0){
+				
+				legend[l] = l+10 ;
+			}
+			else{
+				legend[l] =" ";
+			}
+			
+		}
+		
+		
+		System.out.println(max)
+	
+        def c = new Chart("Current disease trends").setXAxis(new XAxis().setLabels(OFC.stringify(label))).setYAxis(new YAxis().setLabels(OFC.stringify(legend)));
 
         c.getXAxis().set3D(5);
         c.getXAxis().setColour("#909090");
@@ -204,14 +250,16 @@ class HomeController {
 
         Random r = new Random();
 
-        for (int i = 0; i < 10; ++i) {
-            e.addValues(2 + r.nextInt(7));
+
+        for (int i = 0; i < result_count.get(0).count; ++i) {
+            e.addValues(value[i]);
         }
 
         c.addElements(e);
         render c;
 
     }
+
 	
 	  def BAR_CHART = {
 
@@ -223,5 +271,6 @@ class HomeController {
         render new Chart("Simple Bar Chart").addElements(new BarChart(BarChart.Style.GLASS).addValues(9, 8, 7, 6, 5, 4, 3, 2, 1)).toString();
     }
 	
+
 	
 }
