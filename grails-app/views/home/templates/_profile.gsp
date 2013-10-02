@@ -29,7 +29,9 @@
 		float:right;
 		margin-right:3%;
 	}
-	
+	#listOfDiag{
+		margin-top:-11%;
+	}
 </style>
 <jq:jquery>
 	$(document).ready(function(){
@@ -48,14 +50,16 @@
 							<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td>
 					</table>
 				</g:formRemote>
-				
+
 				
 </div>
+			
+			
 			
 <div id="Student-Profile">
 	<h1 align="left">Student Profile</h1>
 	<hr/>
-	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
+	<div  id="add-Student" style="height:360px; overflow-y:scroll;">
 	
 		
 		<div id="editBtn">
@@ -129,7 +133,8 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<a data-toggle="modal" href="#example" class="btn">Submit</a>
+							<g:actionSubmit value="Submit" onclick="return confirm('Are you sure???')" />
+							
 						</center>
 					</td>
 					
@@ -160,6 +165,7 @@
 		</center>
 				<g:if test="${student?.diagnoses}">
 			
+		<div id="listOfDiag">	
 			<table>
 					
 					
@@ -179,6 +185,7 @@
 					
 					</g:each>
 			</table>
+		</div>
 		</g:if>
 	
 		

@@ -18,7 +18,7 @@
 <div id="Student-Profile">
 	<h1 align="left">Student Information</h1>
 	<hr/>
-	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
+	<div  id="add-Student" style="height:360px; overflow-y:scroll;">
 		
 		<!--First Name : 
 		<br>

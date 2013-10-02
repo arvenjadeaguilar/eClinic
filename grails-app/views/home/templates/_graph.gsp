@@ -20,7 +20,7 @@
 	
 	
 	<hr/>
-	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
+	<div  id="add-Student" style="height:360px; overflow-y:scroll;">
 		
 			
 	</div>

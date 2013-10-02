@@ -22,7 +22,7 @@
 <div id="diagnosis">
 	<h1 align="left">Diagnosis</h1>
 	<hr/>
-	<div  id="add-diagnosis" style="height:400px; overflow-y:scroll;">
+	<div  id="add-diagnosis" style="height:360px; overflow-y:scroll;">
 		
 	<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">
 			<table>	

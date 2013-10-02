@@ -16,7 +16,7 @@
 <!--<div id="Student-Add">
 	<h1>Student</h1>
 	<hr/>
-	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
+	<div  id="add-Student" style="height:360px; overflow-y:scroll;">
 	<g:form name="add_Student" action="addStudent">
 		<table>
 		<tr>

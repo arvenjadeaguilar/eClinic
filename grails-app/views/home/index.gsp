@@ -8,9 +8,6 @@
 		<script src="../js/jquery-1.8.3.js"></script>
 		
 		
-		
-		
-		<script src="../js/jquery-1.8.3.js"></script>
 		<script src="../js/bootstrap.js"></script>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="../css/usermainpage.css"/>-->
