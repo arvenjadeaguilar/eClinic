@@ -18,7 +18,18 @@
 	}
 	tr:hover{
 		background-color:white;
+		
 	}
+	#editBtn{
+		float:right;
+		margin-right:1%:
+	}
+	
+	#prescriptionBtn{
+		float:right;
+		margin-right:3%;
+	}
+	
 </style>
 <jq:jquery>
 	$(document).ready(function(){
@@ -47,15 +58,13 @@
 	<div  id="add-Student" style="height:400px; overflow-y:scroll;">
 	
 		
-		<table>
+		<div id="editBtn">
 			<g:if test="${result}">
-			<tr>
-				<td width="80%"></td>
-				
-				<td align="right"><button id="showOrHide" class="btn btn-primary">Edit</button></td>
-			</tr>
+			
+				<button id="showOrHide" class="btn btn-primary">Edit</button>
+		
 			</g:if>
-		</table>
+		</div>
 		
 		<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'route_diagnosis']">
 		
@@ -88,10 +97,10 @@
 			<tr>
 				<td>Enrolled : ${results.enrolled}</td>
 			</tr>
-			<tr>
-				<td><input type="hidden" value="${results.id_number}" name="studentId"/></td>
-				<td align="right"><button id="add-Description" type="submit"class="btn btn-primary" name="idNum" value="1">Add Prescription</button></td>
-			</tr>
+			<div id="prescriptionBtn">
+				<input type="hidden" value="${results.id_number}" name="studentId"/>
+				<button id="add-Description" type="submit"class="btn btn-primary" name="idNum" value="1">Add Prescription</button>
+			</div>
 			</g:each>		
 		</table>
 		

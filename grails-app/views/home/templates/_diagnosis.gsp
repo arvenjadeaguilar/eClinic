@@ -2,7 +2,9 @@
 	tr:hover{
 		background-color:white;
 	}
-	
+	#diagnosis td{
+		width:10%;
+	}
 </style>
 
 <div id="search">
@@ -30,7 +32,7 @@
 				
 				<tr>
 					
-					<td align="center" width="90%">Diagnosis:</br> <textarea name="diagnosis" rows=10 cols=100></textarea></td>
+					<td align="center" width="90%">Diagnosis:</br> <input name="diagnosis"/></td>
 				
 				</tr>
 				
