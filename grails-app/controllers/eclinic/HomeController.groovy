@@ -25,7 +25,8 @@ class HomeController {
 	
 	def graph(){
 	
-		render(template:"templates/graph")
+		//render(template:"templates/graph")
+		render(view:"graph")
 	}
 	
 	

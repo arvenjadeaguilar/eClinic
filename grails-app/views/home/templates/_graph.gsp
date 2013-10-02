@@ -1,3 +1,5 @@
+<gvisualization:apiImport/>
+
 <div id="search">
 				<form>
 					<fieldset>
@@ -23,3 +25,15 @@
 			
 	</div>
 </div>			
+
+<table cellpadding="2" cellspacing="0">
+          <tr>
+             <td>
+                <a href="http://localhost:8080/eClinic/home/graph">Bar Chart (Image)</a>
+             </td>
+             <td>
+                <div id="imagebarchart"></div>
+             </td>
+          </tr>
+         
+</table>
