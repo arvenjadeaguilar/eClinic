@@ -2,8 +2,31 @@ package eclinic
 
 import org.springframework.dao.DataIntegrityViolationException
 import groovy.sql.Sql
+import jofc2.model.Chart
+import jofc2.model.elements.LineChart
+import jofc2.model.axis.YAxis
+import jofc2.model.axis.XAxis
+import jofc2.model.axis.Label
+import jofc2.model.elements.AreaChart
+import jofc2.model.elements.PieChart
+import jofc2.model.axis.Label.Rotation
+import jofc2.model.elements.BarChart
+import jofc2.OFC
+import jofc2.model.elements.FilledBarChart
+import jofc2.model.elements.SketchBarChart
+import jofc2.model.elements.HorizontalBarChart
+import jofc2.model.elements.ScatterChart
+import java.math.MathContext
+import jofc2.model.elements.StackedBarChart
+import jofc2.model.elements.StackedBarChart.StackValue
+import jofc2.model.elements.AbstractDot
+
+
 
 class HomeController {
+
+	 static DOT_STYLE = new AbstractDot.Style(AbstractDot.Style.Type.DOT)
+    static HOLLOW_STYLE = new AbstractDot.Style(AbstractDot.Style.Type.H0LLOW_DOT)
 
 	def idNum
 	def dataSource
@@ -27,6 +50,7 @@ class HomeController {
 	
 		//render(template:"templates/graph")
 		render(view:"graph")
+		
 	}
 	
 	
@@ -136,6 +160,14 @@ class HomeController {
 		render(template:"templates/diagnosis", model:[idNum:idNum]);
 		
 	}
+		
 	
+    def PIE_CHART = {
+        def pieChart = new PieChart()
+        pieChart.setAnimate(true)
+        Chart c = new Chart("Pie Chart").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f).addValues(2, 3).addSlice(6.5f, "hello (6.5)").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
+        render c.toString();
+    }
+
 	
 }
