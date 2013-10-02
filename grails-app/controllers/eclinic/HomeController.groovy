@@ -186,9 +186,41 @@ class HomeController {
 		
         def pieChart = new PieChart()
         pieChart.setAnimate(true)
-		Chart c = new Chart("Sick:Well ratio").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f).addSlice(sick.get(0).count,"Sick").addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
+		Chart c = new Chart("Sick:Well ratio").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f)
+		.addSlice(sick.get(0).count,"Sick")
+		.addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
     }
 
+	def BAR_CHART_3D = {
+
+        def c = new Chart(new Date().toString()).setXAxis(new XAxis().setLabels(OFC.stringify(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)));
+
+        c.getXAxis().set3D(5);
+        c.getXAxis().setColour("#909090");
+
+        def e = new BarChart(BarChart.Style.THREED).setColour("#D54C78");
+
+        Random r = new Random();
+
+        for (int i = 0; i < 10; ++i) {
+            e.addValues(2 + r.nextInt(7));
+        }
+
+        c.addElements(e);
+        render c;
+
+    }
+	
+	  def BAR_CHART = {
+
+        render new Chart("Simple Bar Chart").addElements(new BarChart().addValues(9, 8, 7, 6, 5, 4, 3, 2, 1)).toString();
+
+    }
+
+    def BAR_CHART_GLASS = {
+        render new Chart("Simple Bar Chart").addElements(new BarChart(BarChart.Style.GLASS).addValues(9, 8, 7, 6, 5, 4, 3, 2, 1)).toString();
+    }
+	
 	
 }
