@@ -20,7 +20,7 @@ import java.math.MathContext
 import jofc2.model.elements.StackedBarChart
 import jofc2.model.elements.StackedBarChart.StackValue
 import jofc2.model.elements.AbstractDot
-
+import java.util.*;
 
 
 class HomeController {
@@ -171,6 +171,70 @@ class HomeController {
         Chart c = new Chart("Pie Chart").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f).addSlice(sick,"Sick").addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
     }
+	def BAR_CHART_3D = {
 
+		def db = new Sql(dataSource)
+		def result = db.rows("""select distinct name from diagnosis""");
+		def result_count = db.rows("""select count(distinct name) from diagnosis""");
+		
+		def max_num;
+		def max = 0;
+		def legend_ratio;
+		
+		
+		String[] label = new String[result_count.get(0).count]
+		int[] value = new int[result_count.get(0).count] 
+		for(int i=0;i<result_count.get(0).count;i++){
+			label[i] = result.get(i).name;
+			
+		}
+		
+		for(int j=0;j<result_count.get(0).count;j++){
+			def q = db.rows("""select count(name) from diagnosis where name = '${result.get(j).name}'""");
+			value[j] = q.get(0).count
+		}
+		
+		for(int k=0;k<result_count.get(0).count;k++)
+		{
+			if(value[k] > max)
+			max = value[k];
+			
+		}
+		
+		String[] legend = new String[max+10];
+		legend_ratio = (max)/10;
+		def x;
+		for(int l=0;l<max+10;l++)
+		{
+			if(l%10==0){
+				
+				legend[l] = l+10 ;
+			}
+			else{
+				legend[l] =" ";
+			}
+			
+		}
+		
+		
+		System.out.println(max)
+	
+        def c = new Chart("Current disease trends").setXAxis(new XAxis().setLabels(OFC.stringify(label))).setYAxis(new YAxis().setLabels(OFC.stringify(legend)));
+
+        c.getXAxis().set3D(5);
+        c.getXAxis().setColour("#909090");
+
+        def e = new BarChart(BarChart.Style.THREED).setColour("#D54C78");
+
+        Random r = new Random();
+
+        for (int i = 0; i < result_count.get(0).count; ++i) {
+            e.addValues(value[i]);
+        }
+
+        c.addElements(e);
+        render c;
+
+    }
 	
 }

@@ -8,7 +8,7 @@
     
     <br/><br/>
 	<center>
-		<ofchart:chart name="demo-chart" url="${createLink(action:'PIE_CHART')}" width="800" height="300"/>
+		<ofchart:chart name="demo-chart" url="${createLink(action:'BAR_CHART_3D')}" width="800" height="200"/>
 	</center>
   </body>
 </html>
