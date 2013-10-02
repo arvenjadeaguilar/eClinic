@@ -189,7 +189,7 @@ class HomeController {
 		
         def pieChart = new PieChart()
         pieChart.setAnimate(true)
-		Chart c = new Chart("Sick:Well ratio").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f)
+		Chart c = new Chart("Sick:Well Ratio for Year: " + year).addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f)
 		.addSlice(sick.get(0).count,"Sick")
 		.addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
@@ -244,7 +244,7 @@ class HomeController {
 		
 		System.out.println(max)
 	
-        def c = new Chart("Current disease trends").setXAxis(new XAxis().setLabels(OFC.stringify(label))).setYAxis(new YAxis().setLabels(OFC.stringify(legend)));
+        def c = new Chart("Current Disease Trends for Year: " + year).setXAxis(new XAxis().setLabels(OFC.stringify(label))).setYAxis(new YAxis().setLabels(OFC.stringify(legend)));
 
         c.getXAxis().set3D(5);
         c.getXAxis().setColour("#909090");
