@@ -47,11 +47,12 @@
 		</g:remoteLink>
 		
 		<g:remoteLink action="logout" id="" update="page-body">
-		<div id="status">
-
-			<a data-toggle="modal" href="#out">Logout</a>
-			
-		</div>
+		
+		<a data-toggle="modal" href="#out">
+			<div id="status">
+				Logout
+			</div>
+		</a>
 		</g:remoteLink>
 		
 		

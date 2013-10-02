@@ -1,14 +1,11 @@
 <style>
-	tr:hover{
-		background-color:white;
-	}
 	#diagnosis td{
 		width:10%;
 	}
 	#pres{
-		width:100%;
-		height:200%;
+		width:95%;
 	}
+	
 </style>
 
 <div id="search">
@@ -27,29 +24,20 @@
 	<h1 align="left">Diagnosis</h1>
 	<hr/>
 	<div  id="add-diagnosis" style="height:360px; overflow-y:scroll;">
-		
-	<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">
-			<table border='1'>	
-				<tr>
-					<td>ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"/></td>
-				</tr>
 				
-				<tr>
-					
-					<td align="center" width="90%">Diagnosis:</br> <input name="diagnosis" required="true"/></td>
+				<g:formRemote name="Back" update="page-body" url="[controller: 'home', action:'searchprofile']">
+					<input type="hidden" name="parameter" value="${idNum}">
+					<input type="submit" value="<<< BACK"> 
+				</g:formRemote>	
 				
-				</tr>
-				
-				<tr>
-					
-					<td align="center" width="90%">Prescription: </br><textarea id="pres" name="prescription" required="true"></textarea></td>
-				
-				</tr>
-				
-				<tr>
-					<td><button type="text" class="btn btn-primary" data-loading-text="Loading...">Add</button></td>
-				</tr>
-			</table>
+				<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">		
+				<br/>
+				Diagnosis:</br> <input type="hidden" value="${idNum}" name="studentId"/> <input type="text" name="diagnosis"/>
+				<br/>
+				Prescription: </br><textarea style="height: 130px;" id="pres" name="prescription"></textarea>
+				<br/>
+				<button type="text" class="btn btn-primary" data-loading-text="Loading...">Add</button>
+			
 					
 	</g:formRemote>	
 		

@@ -107,22 +107,36 @@ class HomeController {
 		
 		
 		def diagnosisInstance = new Diagnosis(name: diagnosis ,prescription: prescription ,student: studentInstance).save(flush:true)
-//		db.execute(""""INSERT INTO diagnosis (name, prescription, dateCreated)
-//					   VALUES('${diagnosis}', '${prescription}','${today}'""")
+		
+		def result = db.rows("SELECT * from student WHERE id_number='${studentId}'")
+		
+		String figure = result.get(0).height
+		def feet = extractInts(figure).get(0)
+		def inch = extractInts(figure).get(1)
+		
+		figure = result.get(0).weight
+		def weight = extractInts(figure).get(0)
 		
 		
-		System.out.println("diagnosisId"+diagnosisId+" diagnosis:"+diagnosis+" studentId:"+studentId);
+		//added
+		def student = Student.findByIdNumber(studentId)
+		
+		
+		
+		render(template:"templates/profile", model:[result:result,parameter:studentId,feet:feet,inch:inch,weight:weight,student:student])
+		
+		
 	}
 	
 	
 	def searchprofile(){
-	
-		idNum = params.parameter
-		
+			
 		def db = new Sql(dataSource)
 		def parameter = params.parameter
 		
 		def result = db.rows("SELECT * from student WHERE id_number='${parameter}'")
+		
+		if(result){
 		
 		String figure = result.get(0).height
 		def feet = extractInts(figure).get(0)
@@ -135,10 +149,11 @@ class HomeController {
 		//added
 		def student = Student.findByIdNumber(parameter)
 		
-		
-		
 		render(template:"templates/profile", model:[result:result,parameter:parameter,feet:feet,inch:inch,weight:weight,student:student])
-		
+		}
+		else{
+			render(template:"templates/profileNotFound")
+		}
 		
 	}
 	
@@ -163,15 +178,22 @@ class HomeController {
 		
 	
     def PIE_CHART = {
-		float well = 40f
-		float sick = 60f
+		def db = new Sql(dataSource)
+		def total = db.rows("""select count(*) from student""")
+		def sick = db.rows("""select count(*) from (select distinct student_id from diagnosis) as x""")
+		def well = total.get(0).count - sick.get(0).count
+			
+		System.out.println(total+ " " + "" +sick + " " + well)
 		
         def pieChart = new PieChart()
         pieChart.setAnimate(true)
-        Chart c = new Chart("Pie Chart").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f).addSlice(sick,"Sick").addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
+		Chart c = new Chart("Sick:Well ratio").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f)
+		.addSlice(sick.get(0).count,"Sick")
+		.addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
     }
 	def BAR_CHART_3D = {
+
 
 		def db = new Sql(dataSource)
 		def result = db.rows("""select distinct name from diagnosis""");
@@ -228,6 +250,7 @@ class HomeController {
 
         Random r = new Random();
 
+
         for (int i = 0; i < result_count.get(0).count; ++i) {
             e.addValues(value[i]);
         }
@@ -236,5 +259,18 @@ class HomeController {
         render c;
 
     }
+
+	
+	  def BAR_CHART = {
+
+        render new Chart("Simple Bar Chart").addElements(new BarChart().addValues(9, 8, 7, 6, 5, 4, 3, 2, 1)).toString();
+
+    }
+
+    def BAR_CHART_GLASS = {
+        render new Chart("Simple Bar Chart").addElements(new BarChart(BarChart.Style.GLASS).addValues(9, 8, 7, 6, 5, 4, 3, 2, 1)).toString();
+    }
+	
+
 	
 }
