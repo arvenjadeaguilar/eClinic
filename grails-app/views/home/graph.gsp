@@ -1,8 +1,18 @@
 <%@ page import="org.codehaus.groovy.grails.plugins.ofchart.demo.DemoCharts" contentType="text/html;charset=UTF-8" %>
 <html>
   <head>  
-  
+	<style>
+		#chartA{
+			float:right;
+		}
+		#chartB{
+			float:left;
+		}
+		
+	</style>
   </head>
+  
+
   <ofchart:resources/>
   <g:javascript library="prototype"/>  
   <body>
@@ -15,20 +25,22 @@
 			<tr>
 			
 				<td><g:datePicker name="chosenDate" value="${new Date()}" precision="year" /></td>
-				<td><g:submitButton name="submit" value="Submit"/></td>
+
+				<td><g:submitButton name="submit" class="btn btn-primary" value="Submit"/></td>
+
 			</tr>
 		</table>
 		</g:formRemote>
 	
 	
 		<g:if test="${year}">
-		<ofchart:chart name="demo-chart" url="${createLink(action:'BAR_CHART_3D',id:"${year}")}" width="800" height="200"/>
-		<ofchart:chart name="chart2" url="${createLink(action:'PIE_CHART',id:"${year}")}" width="400" height="300"/>
+
+		<ofchart:chart name="chartA" url="${createLink(action:'BAR_CHART_3D',id:"${year}")}" width="450" height="200"/>
+		<ofchart:chart name="chartB" url="${createLink(action:'PIE_CHART',id:"${year}")}" width="450" height="200"/>
+
 		</g:if>
 		
-			
-		
-
+	
 
   </body>
 </html>
