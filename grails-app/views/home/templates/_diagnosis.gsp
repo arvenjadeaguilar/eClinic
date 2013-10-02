@@ -36,7 +36,7 @@
 				<br/>
 				Prescription: </br><textarea style="height: 130px;" id="pres" name="prescription"></textarea>
 				<br/>
-				<button type="text" class="btn btn-primary" data-loading-text="Loading...">Add</button>
+				<g:actionSubmit value="Add" onclick="return confirm('Are you sure you want to add?')" />
 			
 					
 	</g:formRemote>	

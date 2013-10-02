@@ -30,7 +30,7 @@
 		margin-right:3%;
 	}
 	#listOfDiag{
-		margin-top:20px;
+		margin-top:-12%px;
 	}
 </style>
 <jq:jquery>
@@ -110,9 +110,7 @@
 		
 		</g:formRemote> 
 		
-		<!--
 		
-		-->
 		<center>
 		<table id="showHideTable">
 			<tr id="editForm">
@@ -133,7 +131,7 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<g:actionSubmit value="Submit" onclick="return confirm('Are you sure???')" />
+							<g:actionSubmit value="Submit" onclick="return confirm('Do you really want to update?')" />
 							
 						</center>
 					</td>
