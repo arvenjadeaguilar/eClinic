@@ -130,13 +130,13 @@ class HomeController {
 	
 	
 	def searchprofile(){
-	
-		idNum = params.parameter
-		
+			
 		def db = new Sql(dataSource)
 		def parameter = params.parameter
 		
 		def result = db.rows("SELECT * from student WHERE id_number='${parameter}'")
+		
+		if(result){
 		
 		String figure = result.get(0).height
 		def feet = extractInts(figure).get(0)
@@ -149,10 +149,11 @@ class HomeController {
 		//added
 		def student = Student.findByIdNumber(parameter)
 		
-		
-		
 		render(template:"templates/profile", model:[result:result,parameter:parameter,feet:feet,inch:inch,weight:weight,student:student])
-		
+		}
+		else{
+			render(template:"templates/profileNotFound")
+		}
 		
 	}
 	

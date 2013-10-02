@@ -30,7 +30,7 @@
 		margin-right:3%;
 	}
 	#listOfDiag{
-		margin-top:-11%;
+		margin-top:20px;
 	}
 </style>
 <jq:jquery>
