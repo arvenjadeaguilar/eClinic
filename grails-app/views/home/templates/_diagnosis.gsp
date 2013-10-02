@@ -5,6 +5,10 @@
 	#diagnosis td{
 		width:10%;
 	}
+	#pres{
+		width:100%;
+		height:200%;
+	}
 </style>
 
 <div id="search">
@@ -25,7 +29,7 @@
 	<div  id="add-diagnosis" style="height:360px; overflow-y:scroll;">
 		
 	<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">
-			<table>	
+			<table border='1'>	
 				<tr>
 					<td>ID No.:  ${idNum} <input type="hidden" value="${idNum}" name="studentId"/></td>
 				</tr>
@@ -38,7 +42,7 @@
 				
 				<tr>
 					
-					<td align="center" width="90%">Prescription: </br><textarea name="prescription" rows=10 cols=60></textarea></td>
+					<td align="center" width="90%">Prescription: </br><textarea id="pres" name="prescription"></textarea></td>
 				
 				</tr>
 				

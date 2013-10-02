@@ -168,7 +168,7 @@ class HomeController {
 		
         def pieChart = new PieChart()
         pieChart.setAnimate(true)
-        Chart c = new Chart("Pie Chart").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f).addSlice(well,"Well").addSlice(sick, "Sick").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
+        Chart c = new Chart("Pie Chart").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f).addSlice(sick,"Sick").addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
     }
 
