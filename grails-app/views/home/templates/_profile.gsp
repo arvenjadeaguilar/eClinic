@@ -46,7 +46,7 @@
 				
 				<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'searchprofile']">
 					<table>	
-							<td><input name="parameter" type="text" placeholder="Search ID Number..." /></td>
+							<td><input name="parameter" type="text" placeholder="Search ID Number..." required="true"/></td>
 							<td><button type="Search" class="btn btn-primary" data-loading-text="Loading...">Search</button></td>
 					</table>
 				</g:formRemote>
