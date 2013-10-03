@@ -15,7 +15,7 @@
 			<tr>
 			
 				<td><g:datePicker name="chosenDate" value="${new Date()}" precision="year" /></td>
-				<td><g:submitButton name="submit" value="Submit"/></td>
+				<td><g:submitButton name="submit" class="btn btn-primary" value="Submit"/></td>
 			</tr>
 		</table>
 		</g:formRemote>

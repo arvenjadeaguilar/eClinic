@@ -32,9 +32,9 @@
 				
 				<g:formRemote name="DiagnosisForm" update="page-body" url="[controller: 'home', action:'addDiagnosis']">		
 				<br/>
-				Diagnosis:</br> <input type="hidden" value="${idNum}" name="studentId"/> <input type="text" name="diagnosis"/>
+				Diagnosis:</br> <input type="hidden" value="${idNum}" name="studentId"/> <input type="text" name="diagnosis" required="true"/>
 				<br/>
-				Prescription: </br><textarea style="height: 130px;" id="pres" name="prescription"></textarea>
+				Prescription: </br><textarea style="height: 130px;" id="pres" name="prescription" required="true"></textarea>
 				<br/>
 				<g:actionSubmit class="btn btn-primary" value="Add" onclick="return confirm('Are you sure you want to add?')" />
 			

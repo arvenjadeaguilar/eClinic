@@ -158,7 +158,7 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<g:actionSubmit value="Submit" onclick="return confirm('Do you really want to update?')" />
+							<g:actionSubmit value="Submit" class="btn btn-default" onclick="return confirm('Do you really want to update?')" />
 							
 						</center>
 					</td>
