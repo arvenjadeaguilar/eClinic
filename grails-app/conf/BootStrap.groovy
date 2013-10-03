@@ -7,7 +7,9 @@ class BootStrap {
         if (!Student.count()) {
             createData()
         }
-		
+		if (!Admin.count()) {
+            createAdmin()
+        }
 		def medicine = "Paracetamol"
 		def diagnosisName1 = "fever"
 		def diagnosisName2 = "colds"
@@ -50,6 +52,15 @@ class BootStrap {
             AdminAuthority.create user, userRole, true
         }
     }
-}
+		def createAdmin() {
+			 /* The default password for all user. No need to encode here to avoid double encoding. */
+        String password = 'password'
+		def userRole = new Authority(authority: 'ROLE_USER').save()
+ 
+        [carlo: 'Carlo Joel Apas', ken: 'Ken Villar', arven: 'Arven Jade Aguilar', jemuel: 'Jemuel Racsa', jervey: 'Jervey Benitez'].each { userName, realName ->
+            def user = new Admin(username: userName, password: password, enabled: true).save()
+            AdminAuthority.create user, userRole, true
+			}
+		}
 
-	
+	}
