@@ -17,7 +17,7 @@
 		height:16px;
 	}
 	tr:hover{
-		background-color:white;
+		background-color:#82CAFA;
 		
 	}
 	#editBtn{
@@ -30,7 +30,24 @@
 		margin-right:3%;
 	}
 	#listOfDiag{
-		margin-top:-15%;
+		margin-top:0%;
+	}
+	#medHist:hover{
+		background-color:#2B60DE;	
+	
+	}
+	#medHist tr:hover{
+		background-color:#2B60DE;	
+	
+	}
+	
+	tr hr{
+	
+		background-color:#000000;
+	}
+	#hr{
+		background-color:#000000;
+		width:100%;
 	}
 </style>
 <jq:jquery>
@@ -187,23 +204,29 @@
 					
 					
 					<g:each in="${student.diagnoses}" status="i" var="diagnosis">
+					<table>
+					<div id="medHist">
 					<tr>
-						<td><b>Diagnosis:</b></td> 
-						<td><b>Date Diagnosed:<b></td> <br>
+					
+					<tr>
+						<td><b>Diagnosis:</b><br/>${diagnosis}</td> 
+						<td  style="width:40%; height:50%;"><b>Date Diagnosed:<b><br/><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></td> <br>
 					</tr>
 						
-						<tr>
-							<td>${diagnosis}</td> 
-							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></td> <br>
-						</tr>
+						
 						
 					<tr>
-						<td style="width:80%; height:50%;"><b>Prescription:</b><br/>${diagnosis.prescription} </td>
-					</tr>
-					<tr style="width:100%;">
-						<td style="width:100%;"><hr/></td>
+						<td style="width:70%; height:50%;"><b>Prescription:</b><br/>${diagnosis.prescription} </td><td style="width:30%; height:50%;"></td>
 					</tr>
 					
+					<tr style="width:100%;">
+						<td style="width:100%;"><hr id="hr"/><div id="hr"></div></td><td style="width:20%; height:50%;"><hr id="hr"/></td>
+					</tr>
+					
+					</tr>
+					
+					</div>
+					</table>
 					</g:each>
 			</table>
 		</div>
