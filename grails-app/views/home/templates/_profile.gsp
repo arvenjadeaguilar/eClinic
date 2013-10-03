@@ -161,13 +161,13 @@
 				<g:formRemote name="editform" update="page-body" url="[controller: 'home', action:'editStudentInfo']">
 					<td id="sub1">
 						<center>
-							New height:<small> <input id="inputForm" type="text" name="feet" value="${feet}">(ft) 
-							<input id="inputForm" type="text" name="inch" value="${inch}">(in)</small>
+							New height:<small> <input id="inputForm" type="text" name="feet" value="${feet}" required="true">(ft) 
+							<input id="inputForm" type="text" name="inch" value="${inch}" required="true">(in)</small>
 						</center>
 					</td>
 					<td id="sub1">
 						<center>
-							New weight: <input id="inputForm" type="text" name="weight" value="${weight}"><small>(kgs)</small>
+							New weight: <input id="inputForm" type="text" name="weight" value="${weight}" required="true"><small>(kgs)</small>
 						</center>
 					</td>
 						<center>
