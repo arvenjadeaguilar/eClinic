@@ -17,7 +17,7 @@
 		height:16px;
 	}
 	tr:hover{
-		background-color:white;
+		background-color:#82CAFA;
 		
 	}
 	#editBtn{
@@ -30,25 +30,61 @@
 		margin-right:3%;
 	}
 	#listOfDiag{
-		margin-top:-12%px;
+		margin-top:-38px;
+	}
+	#medHist:hover{
+		background-color:#2B60DE;	
+	
+	}
+	#medHist tr:hover{
+		background-color:#2B60DE;	
+	
+	}
+	
+	tr hr{
+	
+		background-color:#000000;
+	}
+	#hr{
+		background-color:#000000;
+		width:100%;
+	}
+	#option{
+		margin-top:-16px;
 	}
 </style>
 <jq:jquery>
 	$(document).ready(function(){
+		$("#hide").hide();
+		$("#listOfDiag").hide();
 		$("#editForm").hide()
 		$("#showOrHide").click(function(){
 			$("#editForm").toggle('slow');
+			$("#option").toggle('slow');
 		});
 	});
 </jq:jquery>
 
-
 <script>
-	$(".prescription").hide();
+	
+	$("#show").click(function(){
+		$("#listOfDiag").show("slow");
+		$("#studentProf").hide("slow");
+		$("#show").hide();
+		$("#hide").show();
+	});
+	$("#hide").click(function(){
+		$("#listOfDiag").hide("slow");
+		$("#studentProf").show("slow");
+		$("#hide").hide();
+		$('#show').show();
+	});
+	
+</script>
+<script>
+	
 
-	</script>
-	
-	
+</script>
 
 <div id="search">
 				
@@ -69,7 +105,7 @@
 	<hr/>
 	<div  id="add-Student" style="height:360px; overflow-y:scroll;">
 	
-		
+		<div id="studentProf">
 		<div id="editBtn">
 			<g:if test="${result}">
 			
@@ -117,7 +153,7 @@
 		</table>
 		
 		</g:formRemote> 
-		
+		</div>
 		
 		<center>
 		<table id="showHideTable">
@@ -139,7 +175,7 @@
 						</center>
 					<td id="sub2">
 						<center>
-							<g:actionSubmit value="Submit" onclick="return confirm('Do you really want to update?')" />
+							<g:actionSubmit value="Submit" class="btn btn-default" onclick="return confirm('Do you really want to update?')" />
 							
 						</center>
 					</td>
@@ -170,49 +206,60 @@
 				
 		</table>
 		</center>
-		<g:if test="${student?.diagnoses}">
+				<g:if test="${student?.diagnoses}">
+
+<div id="option">
+	<button id="show" class="btn btn-primary">Show Medical History</button>
+	<button id="hide" class="btn btn-primary">Hide Medical History</button>
+		
+</div>
 			
 		<div id="listOfDiag">	
-			<table>
-					
-					
-						<caption>
-							<h2> Medical History </h2>
-						</caption>
-					
+			<caption>
+		<center><h2> Medical History </h2></center>
+	</caption>	
+					<table>
 					<tr>
-						<td><b>Diagnosis:</b></td> 
-						<td><b>Date Diagnosed:<b></td> <br>
-					</tr>
-					<g:each in="${student.diagnoses}" status="i" var="diagnosis">
-						<tr>
-							<td><a href="#ex" data-toggle="modal">${diagnosis}</a></td> 
-							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></td> <br>
+							<th></th>
+							<th></th>
+							<th>Prescription</th>
 						</tr>
-					
+					<g:each in="${student.diagnoses}" var="diagnosis">
+						<tr>
+							<td>${diagnosis.name}</td> 
+							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
+							<td>${diagnosis.prescription}</td>
+						</tr>
 						
+		<!--				
+<script>
+	$('#${diagnosis.name}').click(function() {
+		diagnosis = $('#${diagnosis.prescription}').text();
+		$('#prescription').html(diagnosis);
+		
+	});
+</script>
+					
 						<div class="container">
 						<div id="ex" class="modal hide fade in" style="display: none; ">
-							<div class="modal-header">
-								<h3>Diagnosis</h3><br/>
-								${diagnosis.name}
+							<div class="modal-head">
+							<h3> Prescription </h3><br/>
 							</div>
 							<div class="modal-body">
-								<h3>Prescription:</h3><br/>
-								${diagnosis.prescription}
-								<br/>
+							<p id="prescription"></p>
 								
 							</div>
 							<div class="modal-footer">
 								<a href="#" class="btn btn-default btn-primary btn-block" data-dismiss="modal">Close</a>
 								
 							</div>
-							
+							-->
+						</g:each> 	
 						</div>
 					</div>
-						
-
-					</g:each>
+				
+					
+					
 			</table>
 		</div>
 		</g:if>
@@ -225,11 +272,3 @@
 
 
 
-<script>
-
-$( ".prescription" )
-   .mouseover(function() {
-		$(".prescription").show();
-  });
-  
- </script>

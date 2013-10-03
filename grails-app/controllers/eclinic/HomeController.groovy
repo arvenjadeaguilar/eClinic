@@ -178,26 +178,29 @@ class HomeController {
 		
 	
     def PIE_CHART = {
+		def year = params.id
+		boolean enrolled = true
 		def db = new Sql(dataSource)
-		def total = db.rows("""select count(*) from student""")
-		def sick = db.rows("""select count(*) from (select distinct student_id from diagnosis) as x""")
+		def total = db.rows("""select count(*) from student where enrolled = '${enrolled}' """)
+		def sick = db.rows("""select count(*) from (select distinct student_id from diagnosis where extract(year from(date_created)) = '${year}') as x """)
 		def well = total.get(0).count - sick.get(0).count
 			
 		System.out.println(total+ " " + "" +sick + " " + well)
 		
         def pieChart = new PieChart()
         pieChart.setAnimate(true)
-		Chart c = new Chart("Sick:Well ratio").addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f)
+		Chart c = new Chart("Sick:Well Ratio for Year: " + year).addElements(pieChart.setStartAngle(35).setBorder(2).setAlpha(0.6f)
 		.addSlice(sick.get(0).count,"Sick")
 		.addSlice(well, "Well").setColours("#d01f3c", "#356aa0", "#C79810").setTooltip("#val# of #total#<br>#percent# of 100%"));
         render c.toString();
     }
 	def BAR_CHART_3D = {
 
+		def year = params.id
 
 		def db = new Sql(dataSource)
-		def result = db.rows("""select distinct name from diagnosis""");
-		def result_count = db.rows("""select count(distinct name) from diagnosis""");
+		def result = db.rows("""select distinct name from diagnosis where extract(year from(date_created)) = '${year}'""");
+		def result_count = db.rows("""select count(distinct name) from diagnosis where extract(year from(date_created)) = '${year}'""");
 		
 		def max_num;
 		def max = 0;
@@ -212,7 +215,7 @@ class HomeController {
 		}
 		
 		for(int j=0;j<result_count.get(0).count;j++){
-			def q = db.rows("""select count(name) from diagnosis where name = '${result.get(j).name}'""");
+			def q = db.rows("""select count(name) from diagnosis where extract(year from(date_created)) = '${year}' and name = '${result.get(j).name}'""");
 			value[j] = q.get(0).count
 		}
 		
@@ -241,7 +244,7 @@ class HomeController {
 		
 		System.out.println(max)
 	
-        def c = new Chart("Current disease trends").setXAxis(new XAxis().setLabels(OFC.stringify(label))).setYAxis(new YAxis().setLabels(OFC.stringify(legend)));
+        def c = new Chart("Current Disease Trends for Year: " + year).setXAxis(new XAxis().setLabels(OFC.stringify(label))).setYAxis(new YAxis().setLabels(OFC.stringify(legend)));
 
         c.getXAxis().set3D(5);
         c.getXAxis().setColour("#909090");
@@ -270,7 +273,17 @@ class HomeController {
     def BAR_CHART_GLASS = {
         render new Chart("Simple Bar Chart").addElements(new BarChart(BarChart.Style.GLASS).addValues(9, 8, 7, 6, 5, 4, 3, 2, 1)).toString();
     }
+		
+	def displayRatioOnYear(){
 	
-
+	println "the parameters are: " +params
+	
+	def year = params.chosenDate_year
+	println "ang year kai: " + year
+	
+	
+	render(view:"graph", model:[year:year])		
+	}
+	
 	
 }

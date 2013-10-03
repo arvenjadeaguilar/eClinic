@@ -20,12 +20,24 @@
     
     <br/><br/>
 	
-		<div id="chartA">
-			<ofchart:chart name="demo-chart" url="${createLink(action:'BAR_CHART_3D')}" width="400" height="300"/>
-		</div>
-		<div id="chartB">
-			<ofchart:chart name="chart1" url="${createLink(action:'PIE_CHART')}" width="400" height="300"/>
-		</div>
+		<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'displayRatioOnYear']">
+		<table>
+			<tr>
+			
+				<td><g:datePicker name="chosenDate" value="${new Date()}" precision="year" /></td>
+				<td><g:submitButton name="submit" class="btn btn-primary" value="Submit"/></td>
+			</tr>
+		</table>
+		</g:formRemote>
+	
+	
+		<g:if test="${year}">
+		<ofchart:chart name="demo-chart" url="${createLink(action:'BAR_CHART_3D',id:"${year}")}" width="800" height="200"/>
+		<ofchart:chart name="chart2" url="${createLink(action:'PIE_CHART',id:"${year}")}" width="400" height="300"/>
+		</g:if>
+		
+			
+		
 
   </body>
 </html>
