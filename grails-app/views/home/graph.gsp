@@ -32,8 +32,8 @@
 	
 	
 		<g:if test="${year}">
-		<ofchart:chart name="demo-chart" url="${createLink(action:'BAR_CHART_3D',id:"${year}")}" width="800" height="200"/>
-		<ofchart:chart name="chart2" url="${createLink(action:'PIE_CHART',id:"${year}")}" width="400" height="300"/>
+		<ofchart:chart name="chartA" url="${createLink(action:'BAR_CHART_3D',id:"${year}")}" width="450" height="200"/>
+		<ofchart:chart name="chartB" url="${createLink(action:'PIE_CHART',id:"${year}")}" width="450" height="200"/>
 		</g:if>
 		
 			
