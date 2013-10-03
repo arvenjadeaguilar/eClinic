@@ -11,8 +11,7 @@
 		<script src="../js/bootstrap.js"></script>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
 		<!--<link rel="stylesheet" type="text/css" href="../css/usermainpage.css"/>-->
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap-modal.js"></script>
+		
 	
 	
 	</head>

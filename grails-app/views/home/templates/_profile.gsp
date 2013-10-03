@@ -30,7 +30,7 @@
 		margin-right:3%;
 	}
 	#listOfDiag{
-		margin-top:-12%px;
+		margin-top:-15%;
 	}
 </style>
 <jq:jquery>
@@ -41,6 +41,16 @@
 		});
 	});
 </jq:jquery>
+
+<script>
+	$("#listOfDiag").hide(200);
+
+	
+	$("#show").click(function(){
+		$("#listOfDiag").toggle("slow");
+	
+	});
+</script>
 
 <div id="search">
 				
@@ -162,7 +172,11 @@
 		</table>
 		</center>
 				<g:if test="${student?.diagnoses}">
-			
+
+<div>
+	<input id="show" class="btn btn-primary" value="Show/Hide Medical History">
+</div>
+				
 		<div id="listOfDiag">	
 			<table>
 					
@@ -171,15 +185,24 @@
 							<h2> Medical History </h2>
 						</caption>
 					
+					
+					<g:each in="${student.diagnoses}" status="i" var="diagnosis">
 					<tr>
 						<td><b>Diagnosis:</b></td> 
 						<td><b>Date Diagnosed:<b></td> <br>
 					</tr>
-					<g:each in="${student.diagnoses}" status="i" var="diagnosis">
+						
 						<tr>
 							<td>${diagnosis}</td> 
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></td> <br>
 						</tr>
+						
+					<tr>
+						<td style="width:80%; height:50%;"><b>Prescription:</b><br/>${diagnosis.prescription} </td>
+					</tr>
+					<tr style="width:100%;">
+						<td style="width:100%;"><hr/></td>
+					</tr>
 					
 					</g:each>
 			</table>
