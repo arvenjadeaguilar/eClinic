@@ -42,6 +42,14 @@
 	});
 </jq:jquery>
 
+
+<script>
+	$(".prescription").hide();
+
+	</script>
+	
+	
+
 <div id="search">
 				
 				<g:formRemote name="myForm" update="page-body" url="[controller: 'home', action:'searchprofile']">
@@ -147,6 +155,7 @@
 								<g:form controller="home" action="editStudentInfo">
 									<center>
 										<input type="submit" class="btn btn-primary btn-lg btn-block" value="Yes"/>
+										
 									</center>
 								</g:form>
 								<br/>
@@ -161,7 +170,7 @@
 				
 		</table>
 		</center>
-				<g:if test="${student?.diagnoses}">
+		<g:if test="${student?.diagnoses}">
 			
 		<div id="listOfDiag">	
 			<table>
@@ -177,10 +186,32 @@
 					</tr>
 					<g:each in="${student.diagnoses}" status="i" var="diagnosis">
 						<tr>
-							<td>${diagnosis}</td> 
+							<td><a href="#ex" data-toggle="modal">${diagnosis}</a></td> 
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></td> <br>
 						</tr>
 					
+						
+						<div class="container">
+						<div id="ex" class="modal hide fade in" style="display: none; ">
+							<div class="modal-header">
+								<h3>Diagnosis</h3><br/>
+								${diagnosis.name}
+							</div>
+							<div class="modal-body">
+								<h3>Prescription:</h3><br/>
+								${diagnosis.prescription}
+								<br/>
+								
+							</div>
+							<div class="modal-footer">
+								<a href="#" class="btn btn-default btn-primary btn-block" data-dismiss="modal">Close</a>
+								
+							</div>
+							
+						</div>
+					</div>
+						
+
 					</g:each>
 			</table>
 		</div>
@@ -189,4 +220,16 @@
 		
 	
 	</div>
-</div>			
+</div>
+
+
+
+
+<script>
+
+$( ".prescription" )
+   .mouseover(function() {
+		$(".prescription").show();
+  });
+  
+ </script>
