@@ -118,9 +118,15 @@
 		
 		<table>
 			<g:each in="${result}" var="${results}">
+			<%----------------------------------------------------%>
+			<g:set var="firstName" value="${results.first_name}"/>
+			${firstName.getClass()}
+			<g:set var="lastName" value="${results.first_name}"/>
+			${lastName.getClass()}
+			<%----------------------------------------------------%>
 			<tr>
 				<td>First Name : ${results.first_name}</td>
-				<td>Last Name : ${results.last_name}</td>
+				<td>Last Name : ${results.first_name}</td>
 			</tr>
 			<tr>
 				<td>ID Number : ${results.id_number}</td>
@@ -216,6 +222,7 @@
 	<button id="hide" class="btn btn-primary">Hide Medical History</button>
 		
 </div>
+
 			
 		<div id="listOfDiag">	
 			<caption>
@@ -226,15 +233,33 @@
 							<th></th>
 							<th></th>
 							<th>Prescription</th>
+							<th></th>
 						</tr>
 					<g:each in="${student.diagnoses}" var="diagnosis">
 						<tr>
 							<td>${diagnosis.name}</td> 
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
 							<td>${diagnosis.prescription}</td>
-						</tr>
+							<%-------------------------------------------------------%>
+							<td><a class="btn btn-primary" data-toggle="modal" href="#printPrescription">Print</a></td>
 						
+<%-------------------------------------------------------------------------------------------%>
+			<div align="center" class="container">
+			<div id="printPrescription" class="modal hide fade in" style="display: none; ">
+				<div class="modal-header" align="left">
+					<a class="close icon-remove" data-dismiss="modal">X</a>
+					<h1>PRESCRIPTION</h1>
+				</div>
+				<div class="modal-body">
+					<div> <font size="2"> During ${diagnosis.dateCreated} the student ${firstName} ${lastName} was diagnosed with ${diagnosis.name}
+											and was prescribed with ${diagnosis.prescription}</font>
+					</div>
+				</div>
+			</div>
+<%-------------------------------------------------------------------------------------------%>
+						</tr>				
 		<!--				
+		
 <script>
 	$('#${diagnosis.name}').click(function() {
 		diagnosis = $('#${diagnosis.prescription}').text();
@@ -257,13 +282,13 @@
 								
 							</div>
 							-->
-						</g:each> 	
+							
+						</g:each>
+						
 						</div>
-					</div>
-				
-					
-					
+					</div>	
 			</table>
+			
 		</div>
 		</g:if>
 	
