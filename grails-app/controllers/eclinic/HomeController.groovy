@@ -99,11 +99,14 @@ class HomeController {
 		def db = new Sql(dataSource)
 		
 		def diagnosisId = diagnosisIdGenerate();
-		def diagnosis = params.diagnosis
-		def prescription = params.prescription;
+		def diagnosisTemp = params.diagnosis
+		def prescriptionTemp = params.prescription;
 		def studentId = params.studentId
 		def today = new Date()
-				
+		def diagnosis = diagnosisTemp.toLowerCase();
+		def prescription = prescriptionTemp.toLowerCase();
+
+		
 		def studentInstance = Student.findByIdNumber(studentId)
 		println "ang student sa pag add ug diagnosis kai: " + studentInstance
 		
