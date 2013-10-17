@@ -120,9 +120,9 @@
 			<g:each in="${result}" var="${results}">
 			<%----------------------------------------------------%>
 			<g:set var="firstName" value="${results.first_name}"/>
-			${firstName.getClass()}
+			<!--${firstName.getClass()}-->
 			<g:set var="lastName" value="${results.first_name}"/>
-			${lastName.getClass()}
+			<!--${lastName.getClass()}-->
 			<%----------------------------------------------------%>
 			<tr>
 				<td>First Name : ${results.first_name}</td>
@@ -169,14 +169,51 @@
 						<center>
 							New height:
 							<small> 
-								<input id="inputForm" type="text" name="feet" value="${feet}" required="true">(ft) 
-								<input id="inputForm" type="text" name="inch" value="${inch}" required="true">(in)
+								<!--<input id="inputForm" type="text" name="feet" value="${feet}" required="true">(ft) -->
+								<div class="control-group" id="inputForm">
+										<select name="feet" placeholder="asd">
+											<option value="${feet}"  selected>Select feet</option>
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+										</select>
+								</div><br/>
+								
+								<!--<input id="inputForm" type="text" name="inch" value="${inch}" required="true">(in)-->
+								<div class="control-group" id="inputForm">
+										<select name="inch">
+											<option value="${inch}"  selected>Select inch</option>
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+								</div>
 							</small>
 						</center>
 					</td>
 					<td id="sub1">
 						<center>
+						<div align="right">
 							New weight: <input id="inputForm" type="text" name="weight" value="${weight}" required="true"><small>(kgs)</small>
+						</div>
 						</center>
 					</td>
 						<center>
