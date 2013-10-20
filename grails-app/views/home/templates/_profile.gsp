@@ -80,7 +80,28 @@
 		$('#show').show();
 	});
 	
+	
 </script>
+<%---------------------------------------------%>
+
+<script>
+function print(id)
+{
+   var html="<html>";
+   html+= document.getElementById(id).innerHTML;
+
+   html+="</html>";
+
+   var printWin = window.open('','','left=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status  =0');
+   printWin.document.write(html);
+   printWin.document.close();
+   printWin.focus();
+   printWin.print();
+   printWin.close();
+}
+</script>
+<%----------------------------------------------%>
+
 <script>
 	
 
@@ -120,9 +141,9 @@
 			<g:each in="${result}" var="${results}">
 			<%----------------------------------------------------%>
 			<g:set var="firstName" value="${results.first_name}"/>
-			<!--${firstName.getClass()}-->
+			<${firstName.getClass()}>
 			<g:set var="lastName" value="${results.first_name}"/>
-			<!--${lastName.getClass()}-->
+			<${lastName.getClass()}>
 			<%----------------------------------------------------%>
 			<tr>
 				<td>First Name : ${results.first_name}</td>
@@ -278,21 +299,15 @@
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
 							<td>${diagnosis.prescription}</td>
 							<%-------------------------------------------------------%>
-							<td><a class="btn btn-primary" data-toggle="modal" href="#printPrescription">Print</a></td>
+							<td><button class="btn btn-primary" onclick="print('history');">Print</button></td>
 						
 <%-------------------------------------------------------------------------------------------%>
-			<div align="center" class="container">
-			<div id="printPrescription" class="modal hide fade in" style="display: none; ">
-				<div class="modal-header" align="left">
-					<a class="close icon-remove" data-dismiss="modal">X</a>
-					<h1>PRESCRIPTION</h1>
-				</div>
-				<div class="modal-body">
-					<div> <font size="2"> During ${diagnosis.dateCreated} the student ${firstName} ${lastName} was diagnosed with ${diagnosis.name}
-											and was prescribed with ${diagnosis.prescription}</font>
-					</div>
-				</div>
-			</div>
+
+<div id="history" style="display: none"> During ${diagnosis.dateCreated} the student ${firstName} ${lastName} was diagnosed with ${diagnosis.name}
+ and was prescribed with ${diagnosis.prescription}
+											<br/><br/><br/><br/><br/>
+__________________________________________ <br/>Medical Staff Nurse Signature</div>
+
 <%-------------------------------------------------------------------------------------------%>
 						</tr>				
 		<!--				
