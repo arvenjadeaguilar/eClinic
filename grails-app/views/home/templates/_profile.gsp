@@ -103,6 +103,7 @@ function print(id)
    printWin.close();
 }
 </script>
+
 <%----------------------------------------------%>
 
 <script>
@@ -145,12 +146,12 @@ function print(id)
 			<%----------------------------------------------------%>
 			<g:set var="firstName" value="${results.first_name}"/>
 			<${firstName.getClass()}>
-			<g:set var="lastName" value="${results.first_name}"/>
+			<g:set var="lastName" value="${results.last_name}"/>
 			<${lastName.getClass()}>
 			<%----------------------------------------------------%>
 			<tr>
 				<td>First Name : ${results.first_name}</td>
-				<td>Last Name : ${results.first_name}</td>
+				<td>Last Name : ${results.last_name}</td>
 			</tr>
 			<tr>
 				<td>ID Number : ${results.id_number}</td>
@@ -299,10 +300,14 @@ function print(id)
 						</tr>
 					<g:each in="${student.diagnoses}" var="diagnosis">
 						<tr>
+							<td>${diagnosis.name}</td> 
+								<g:set var="diag" value="${diagnosis.name}"/>
+								<${diag.getClass()}>
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
 							<td>${diagnosis.name}</td> 
 							<td>${diagnosis.prescription}</td>
 						</tr>				
+
 		<!--				
 		
 <script>
