@@ -100,6 +100,7 @@ function print(id)
    printWin.close();
 }
 </script>
+
 <%----------------------------------------------%>
 
 <script>
@@ -142,12 +143,12 @@ function print(id)
 			<%----------------------------------------------------%>
 			<g:set var="firstName" value="${results.first_name}"/>
 			<${firstName.getClass()}>
-			<g:set var="lastName" value="${results.first_name}"/>
+			<g:set var="lastName" value="${results.last_name}"/>
 			<${lastName.getClass()}>
 			<%----------------------------------------------------%>
 			<tr>
 				<td>First Name : ${results.first_name}</td>
-				<td>Last Name : ${results.first_name}</td>
+				<td>Last Name : ${results.last_name}</td>
 			</tr>
 			<tr>
 				<td>ID Number : ${results.id_number}</td>
@@ -296,20 +297,26 @@ function print(id)
 					<g:each in="${student.diagnoses}" var="diagnosis">
 						<tr>
 							<td>${diagnosis.name}</td> 
+								<g:set var="diag" value="${diagnosis.name}"/>
+								<${diag.getClass()}>
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
 							<td>${diagnosis.prescription}</td>
-							<%-------------------------------------------------------%>
+								<g:set var="pres" value="${diagnosis.prescription}"/>
+								<${pres.getClass()}>
+<%-------------------------------------------------------------------------------------------%>
 							<td><button class="btn btn-primary" onclick="print('history');">Print</button></td>
-						
-<%-------------------------------------------------------------------------------------------%>
+						</tr>
 
-<div id="history" style="display: none"> During ${diagnosis.dateCreated} the student ${firstName} ${lastName} was diagnosed with ${diagnosis.name}
- and was prescribed with ${diagnosis.prescription}
-											<br/><br/><br/><br/><br/>
-__________________________________________ <br/>Medical Staff Nurse Signature</div>
-
-<%-------------------------------------------------------------------------------------------%>
-						</tr>				
+			<div id="history" style="display: none"> 
+				During ${diagnosis.dateCreated} the student ${firstName} ${lastName} was diagnosed with ${diag}
+				and was prescribed with ${pres}
+				<br/><br/><br/><br/><br/>
+				__________________________________________ 
+				<br/>
+				Medical Staff Nurse Signature
+			</div>
+			
+<%-------------------------------------------------------------------------------------------%>						
 		<!--				
 		
 <script>
