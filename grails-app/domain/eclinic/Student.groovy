@@ -11,7 +11,7 @@ class Student {
 	String gender
 	Date birthday
 	String address
-	String weight
+	Integer weight
 	String height
 	String bloodType
 	boolean enrolled
