@@ -75,133 +75,14 @@ class HomeController {
 		def feet = params.feet
 		def inch = params.inch
 		def weight = params.weight
-		String newWeight = weight + "kgs"
+		def newWeight = weight
 		String newHeight = feet + "ft " + inch + "in"
 		
-		switch(feet) {
-			case "0" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "1" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "2" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "3" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "4" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "5" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "6" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "7" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "8" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "9" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			default:
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,inch:inch,weight:weight])
-				break;
-		}
+		db.execute("""UPDATE student SET height='${newHeight}', weight='${newWeight}' where id_number='${idNumber}'""")
+		def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
+		render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
 		
-		switch(inch) {
-			case "0" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,weight:weight])
-				break
-			case "1" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "2" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "3" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "4" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "5" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "6" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "7" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "8" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			case "9" :
-				db.execute("""UPDATE student SET height='${newHeight}' where id_number='${idNumber}'""")
-				def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-				//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break
-			default:
-				render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-				break;
-		}
 		
-		//if(feet == "null") {
-			//def result = db.rows("SELECT * from student")
-			//render(template:"templates/profile", model:[result:result,parameter:idNumber])
-		//}else if(inch == "null") {
-			//def result = db.rows("SELECT * from student")
-			//render(template:"templates/profile", model:[result:result,parameter:idNumber])
-		//}else {
-			//db.execute("""UPDATE student SET height='${newHeight}', weight='${newWeight}' where id_number='${idNumber}'""")
-			//def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-			//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-		//}
-			//render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
 	}
 	
 	def diagnosisIdGenerate(){

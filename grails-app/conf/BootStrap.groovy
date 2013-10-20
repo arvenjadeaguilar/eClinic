@@ -36,7 +36,7 @@ class BootStrap {
 			
 			String studentName = "Student" + i
 			def student = new Student(firstName: studentName, middleName:studentName,lastName:studentName, college: "SCS", major:"BSCS", idNumber:"2010-0"+id,
-									  gender: "MALE", birthday: new Date(), address: "Iligan City", weight: "50kgs", height:"5.0", bloodType:"O", enrolled:true).save(flush:true)
+									  gender: "MALE", birthday: new Date(), address: "Iligan City", weight: 50, height:"5ft 5in", bloodType:"O", enrolled:true).save(flush:true)
 			id++
 		
 		
@@ -47,7 +47,7 @@ class BootStrap {
         /* The default password for all user. No need to encode here to avoid double encoding. */
         String password = 'password'
  
-        [carlo: 'Carlo Joel Apas', ken: 'Ken Villar', arven: 'Arven Jade Aguilar', jemuel: 'Jemuel Racsa', jervey: 'Jervey Benitez'].each { userName, realName ->
+        [username: 'Admin', carlo: 'Carlo Joel Apas', ken: 'Ken Vilar', arven: 'Arven Jade Aguilar', jemuel: 'Jemuel Racsa', jervey: 'Jervey Benitez'].each { userName, realName ->
             def user = new Admin(username: userName, password: password, enabled: true).save()
             AdminAuthority.create user, userRole, true
         }
@@ -57,7 +57,7 @@ class BootStrap {
         String password = 'password'
 		def userRole = new Authority(authority: 'ROLE_USER').save()
  
-        [carlo: 'Carlo Joel Apas', ken: 'Ken Villar', arven: 'Arven Jade Aguilar', jemuel: 'Jemuel Racsa', jervey: 'Jervey Benitez'].each { userName, realName ->
+        [username: 'Admin', carlo: 'Carlo Joel Apas', ken: 'Ken Vilar', arven: 'Arven Jade Aguilar', jemuel: 'Jemuel Racsa', jervey: 'Jervey Benitez'].each { userName, realName ->
             def user = new Admin(username: userName, password: password, enabled: true).save()
             AdminAuthority.create user, userRole, true
 			}
