@@ -57,6 +57,7 @@
 	$(document).ready(function(){
 		$("#hide").hide();
 		$("#listOfDiag").hide();
+		$("#printButton").hide();
 		$("#editForm").hide()
 		$("#showOrHide").click(function(){
 			$("#editForm").toggle('slow');
@@ -71,11 +72,13 @@
 		$("#listOfDiag").show("slow");
 		$("#studentProf").hide("slow");
 		$("#show").hide();
+		$("#printButton").show();
 		$("#hide").show();
 	});
 	$("#hide").click(function(){
 		$("#listOfDiag").hide("slow");
 		$("#studentProf").show("slow");
+		$("#printButton").hide();
 		$("#hide").hide();
 		$('#show').show();
 	});
@@ -92,7 +95,7 @@ function print(id)
 
    html+="</html>";
 
-   var printWin = window.open('','','left=0,top=0,width=1,height=1,toolbar=0,scrollbars=0,status  =0');
+   var printWin = window.open('','','left=0,top=0,width=110,height=0,fullscreen=1,toolbar=0,scrollbars=0,status =0');
    printWin.document.write(html);
    printWin.document.close();
    printWin.focus();
@@ -278,6 +281,7 @@ function print(id)
 <div id="option">
 	<button id="show" class="btn btn-primary">Show Medical History</button>
 	<button id="hide" class="btn btn-primary">Hide Medical History</button>
+	<button id="printButton" class="btn btn-primary" onclick="print('listOfDiag');">Print</button>
 		
 </div>
 
@@ -295,20 +299,9 @@ function print(id)
 						</tr>
 					<g:each in="${student.diagnoses}" var="diagnosis">
 						<tr>
-							<td>${diagnosis.name}</td> 
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
+							<td>${diagnosis.name}</td> 
 							<td>${diagnosis.prescription}</td>
-							<%-------------------------------------------------------%>
-							<td><button class="btn btn-primary" onclick="print('history');">Print</button></td>
-						
-<%-------------------------------------------------------------------------------------------%>
-
-<div id="history" style="display: none"> During ${diagnosis.dateCreated} the student ${firstName} ${lastName} was diagnosed with ${diagnosis.name}
- and was prescribed with ${diagnosis.prescription}
-											<br/><br/><br/><br/><br/>
-__________________________________________ <br/>Medical Staff Nurse Signature</div>
-
-<%-------------------------------------------------------------------------------------------%>
 						</tr>				
 		<!--				
 		
