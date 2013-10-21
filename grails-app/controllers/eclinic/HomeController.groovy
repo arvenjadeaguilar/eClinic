@@ -80,8 +80,7 @@ class HomeController {
 		
 		db.execute("""UPDATE student SET height='${newHeight}', weight='${newWeight}' where id_number='${idNumber}'""")
 		def result = db.rows("SELECT * from student WHERE id_number='${idNumber}'")
-		render(template:"templates/profile", model:[result:result,parameter:idNumber,feet:feet,inch:inch,weight:weight])
-		
+		redirect(controller:'home',action:'searchprofile', params: [parameter:idNumber])
 		
 	}
 	

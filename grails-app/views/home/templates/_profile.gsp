@@ -58,7 +58,8 @@
 		$("#hide").hide();
 		$("#listOfDiag").hide();
 		$("#printButton").hide();
-		$("#editForm").hide()
+		$("#editForm").hide();
+		$("#show").show();
 		$("#showOrHide").click(function(){
 			$("#editForm").toggle('slow');
 			$("#option").toggle('slow');
@@ -291,54 +292,30 @@ function print(id)
 			<caption>
 		<center><h2> Medical History </h2></center>
 	</caption>	
+		<center>
+			${result.last_name.get(0)}, ${result.first_name.get(0)} -- ${result.id_number.get(0)} <br/>
+			${result.college.get(0)} -- ${result.major.get(0)}
 					<table>
 					<tr>
-							<!--<th></th>-->
-							<th></th>
-							<th>Diagnosis</th>
-							<th>Prescription</th>
+							<th><center>Date</center></th>
+							<th><center>Diagnosis</center></th>
+							<th><center>Prescription</center></th>
 						</tr>
 					<g:each in="${student.diagnoses}" var="diagnosis">
 						<tr>
-							<!--<td>${diagnosis.name}</td> -->
-								<g:set var="diag" value="${diagnosis.name}"/>
-								<${diag.getClass()}>
-							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
-							<td>${diagnosis.name}</td> 
-							<td>${diagnosis.prescription}</td>
+								
+							<td width="20%"><center><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/></center> </td><br>
+							<td width="30%"><center>${diagnosis.name}</center></td> 
+							<td width="50%"><center>${diagnosis.prescription}</center></td>
 						</tr>				
 
-		<!--				
-		
-<script>
-	$('#${diagnosis.name}').click(function() {
-		diagnosis = $('#${diagnosis.prescription}').text();
-		$('#prescription').html(diagnosis);
-		
-	});
-</script>
-					
-						<div class="container">
-						<div id="ex" class="modal hide fade in" style="display: none; ">
-							<div class="modal-head">
-							<h3> Prescription </h3><br/>
-							</div>
-							<div class="modal-body">
-							<p id="prescription"></p>
-								
-							</div>
-							<div class="modal-footer">
-								<a href="#" class="btn btn-default btn-primary btn-block" data-dismiss="modal">Close</a>
-								
-							</div>
-							-->
 							
 						</g:each>
 						
 						</div>
 					</div>	
 			</table>
-			
+			</center>
 		</div>
 		</g:if>
 	
