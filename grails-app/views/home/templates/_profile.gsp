@@ -171,7 +171,7 @@ function print(id)
 			</tr>
 			<tr>
 				<td>Height :  ${results.height}</td>
-				<td>Weight : ${results.weight}</td>
+				<td>Weight : ${results.weight}kgs</td>
 			</tr>
 			<tr>
 				<td>Enrolled : ${results.enrolled}</td>
@@ -293,14 +293,14 @@ function print(id)
 	</caption>	
 					<table>
 					<tr>
+							<!--<th></th>-->
 							<th></th>
-							<th></th>
+							<th>Diagnosis</th>
 							<th>Prescription</th>
-							<th></th>
 						</tr>
 					<g:each in="${student.diagnoses}" var="diagnosis">
 						<tr>
-							<td>${diagnosis.name}</td> 
+							<!--<td>${diagnosis.name}</td> -->
 								<g:set var="diag" value="${diagnosis.name}"/>
 								<${diag.getClass()}>
 							<td><g:formatDate format="MMMM dd, yyyy" date="${diagnosis.dateCreated}"/> </td> <br>
